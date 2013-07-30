@@ -22,7 +22,7 @@
 	  	/*   this is where the zoom and lat/long is set */
 	  	map = new L.Map('map').setView(new L.LatLng(40.698, -73.97), 11);
 	  	
-var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/zingbot.map-nzrryjpo/{z}/{x}/{y}.png'
+var mapboxUrl = 'http://{s}.tile.stamen.com/terrain-lines/{z}/{x}/{y}.png'
         , mapbox = new L.TileLayer(mapboxUrl, {maxZoom: 18, attribution: "Powered by Leaflet and Mapbox"});
 		map.addLayer(mapbox,true);
 
