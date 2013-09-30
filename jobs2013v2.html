@@ -18,39 +18,45 @@
         margin: 0;
       }
       
-
-
+/*       	IE Styles */
     </style><!--[if lte IE 8]>
         <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
          <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
  <![endif]-->
 </head>
-
 <body>
 
-    <!-- Begin Map-->
+<!-- 	Information panel on left side -->
     <div id="sweetenpanel">
         <h4>Sweeten produces a regular...</h4>
     </div>
+
 
 <!-- Buttons: a test of SQL. Might be taken out-->
     <div id='menu'>
         <a href="#2012" id="date_2012" class="button 2012">2012</a> <a href="#2013" id="date_2012" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
     </div>
 
-
+    <!-- Begin Map-->
     <div id="map">
         <script type="infowindow/html" id="infowindow_template">
         
-<!--         popup window -->
+<!-- popup window -->
 <div class="cartodb-popup">
         <a href="#close" class="cartodb-popup-close-button close">x</a>
-         <div class="cartodb-popup-content-wrapper">
-           <div class="cartodb-popup-content">
-            <h4>{{content.data._display}}</h4>
-            <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a>
-            </br>
+        <div class="cartodb-popup-content-wrapper">
+        <div class="cartodb-popup-content">
+        
+<!--    Unformatted version of pre_filing_date -->
+        <h4>{{content.data._display}}</h4>
+        
+<!--  Loads the job page from the NYC DOB site -->
+          <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a></br>
+          
+<!--      Loads the building information page form the NYC DOB site -->
             <a href = "http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{content.data.bin__}}" target="blank" >Building No.{{content.data.bin__}}  </a>
+            
+<!--      Address, cost of project and fee -->
             <h2>{{content.data.addressss}}</h2>
             <hr> 
             <h4>Reported work cost</h4>
@@ -58,6 +64,8 @@
              <h4>Total Estimated Fee</h4>
             <h6> ${{content.data.total_est_fee}}</h6>
             <hr>
+            
+<!--      Owner and applicant -->
             <h4>Owner:</h4><h3>{{content.data.owner_s_first_last_name}}</h3>
             <hr>
             <h4>Applicant</h4><h3>{{content.data.applicant_s_first_last_name}}</h3>
@@ -69,7 +77,10 @@
          <div class="cartodb-popup-tip-container"></div>
         </div>
         </script> <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js" type="text/javascript">
-</script> <script type="text/javascript">
+</script> 
+
+<!-- Javascript for map -->
+<script type="text/javascript">
 function main() {
         var map = L.map('map', { 
           zoomControl: true,
