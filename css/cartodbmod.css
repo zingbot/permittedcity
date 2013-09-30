@@ -9,12 +9,11 @@ hr {
 /* Time Buttons */
 #menu {
 	position:absolute;
-	top:200px;
-	left:100px;
-	width:100px;
-	height:60px;
+	top:300px;
+	left:50px;
+	width:300px;
+	height:600px;
 	background:transparent;
-	background-color:#fff;
 	z-index:10;
 }
 

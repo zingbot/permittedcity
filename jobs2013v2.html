@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Renovation Job Starts in New York City</title>
+    <title>Permitted City</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -11,13 +11,15 @@
     <link rel="stylesheet" href="css/cartodbmod.css" type="text/css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" type="text/css">
     <style type="text/css">
+    
   html, body, #map {
         height: 100%;
         padding: 0;
         margin: 0;
       }
       
-         
+
+
     </style><!--[if lte IE 8]>
         <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
          <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
@@ -25,21 +27,24 @@
 </head>
 
 <body>
-    <!-- Begin Map-->
 
+    <!-- Begin Map-->
     <div id="sweetenpanel">
         <h4>Sweeten produces a regular...</h4>
     </div>
 
+<!-- Buttons: a test of SQL. Might be taken out-->
     <div id='menu'>
         <a href="#2012" id="date_2012" class="button 2012">2012</a> <a href="#2013" id="date_2012" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
     </div>
 
+
     <div id="map">
         <script type="infowindow/html" id="infowindow_template">
+        
+<!--         popup window -->
 <div class="cartodb-popup">
         <a href="#close" class="cartodb-popup-close-button close">x</a>
-
          <div class="cartodb-popup-content-wrapper">
            <div class="cartodb-popup-content">
             <h4>{{content.data._display}}</h4>
@@ -71,19 +76,19 @@ function main() {
           center: [40.7142, -74.0064],
           zoom: 13,
           maxZoom: 18,
-          minZoom:5,
+          minZoom: 13,
           maxBounds:[[40.49,-74.26],[40.93,-73.655]]
         });
 
         /* L.tileLayer('http://{s}.tile.cloudmade.com/8f4df2ed0acc44269b35bd8e5a692069/109451/256/{z}/{x}/{y}.png', { maxZoom: 20, attribution: 'Mapbox' }).addTo(map); 
         */
 
-        L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { maxZoom: 17,
-          attribution: 'Mapbox'
+		//Mapbox tile layer
+        L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { maxZoom: 17, attribution: 'Mapbox'
         }).addTo(map);
 
+		// layer id from the API
         var layerURL = 'http://zingbot.cartodb.com/api/v2/viz/1a843f50-1f0a-11e3-a567-5404a6a69006/viz.json';
-
 
         cartodb.createLayer(map,layerURL)
          .addTo(map)
@@ -91,9 +96,9 @@ function main() {
            // get sublayer 0 and set the infowindow template
            
         var sublayers = [];
-
-        var sublayer = layer.getSubLayer(1);
-           
+        
+        //gets viz layers. 0 is layer 1, 1 is layer 2
+        var sublayer = layer.getSubLayer(1); 
         var subLayerOptions = {sql: "SELECT * FROM swmasterfinal"}
 
         sublayer.set(subLayerOptions);
