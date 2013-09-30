@@ -23,6 +23,14 @@ hr {
     padding: 15px;
 }
 
+#slider {
+    position: absolute;
+    bottom: 50px;
+    left: 150px;
+    width: 80%;
+    z-index: 2000;
+}
+
 /* Time Buttons */
 #menu {
 	position:absolute;

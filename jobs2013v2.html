@@ -14,17 +14,14 @@
             <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
         <![endif]-->
+        <link rel="stylesheet" href="js/jQRangeSlider/css/classic-min.css" type="text/css" />
 
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script> 
 
-        <style type="text/css">  
-            html, body, #map {
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
-        </style>
+        <script src="js/jQRangeSlider/jQDateRangeSlider-min.js"></script>
+        <script src="js/moment.min.js"></script>
 
         <!-- Javascript for map -->
         <script type="text/javascript">
@@ -86,9 +83,26 @@
 
                         //This is where the infowindow is activated
                         sublayer.infowindow.set('template', $('#infowindow_template').html());
-                    }).on('error', function() {
+                    })
+                    .on('error', function() {
                         console.log("some error occurred");
                     });
+
+                // Initialize the date slider
+                $('#slider').dateRangeSlider({
+                    arrows: false,
+                    bounds: {
+                        // 0-based months
+                        min: new Date(2007, 0, 1),
+                        max: new Date(2013, 11, 1)
+                    },
+                    formatter: function (val) {
+                        return moment(val).format('MMMM YYYY');
+                    },
+                    step: {
+                        months: 1
+                    }                        
+                });
             });
         </script>
 
@@ -101,6 +115,8 @@
                 <h4>Sweeten produces a regular...</h4>
             </div>
         </div>
+
+        <div id="slider"></div>
 
         <!-- Begin Map-->
         <div id="map"></div>
