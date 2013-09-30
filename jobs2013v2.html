@@ -15,10 +15,7 @@
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
         <![endif]-->
 
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script> 
 
         <style type="text/css">  
@@ -28,29 +25,6 @@
                 margin: 0;
             }
         </style>
-
-        <script>
-            //Time Slider (In process)
-            //Dynamic time slider
-                //http://jqueryui.com/datepicker/#date-range
-                //http://jqueryui.com/slider/#range
-                //http://jqueryui.com/slider/#range-vertical
-            $(function() {
-                $( "#slider-range" ).slider({
-                    orientation: "vertical",
-                    range: true,
-                    min:2013,
-                    max:2008,
-                    values: [ 2013, 2012, 2011, 2010, 2009 ],
-                    slide: function( event, ui ) {
-                        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-                    }
-                });
-
-                $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-                      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-            });
-        </script>
 
         <!-- Javascript for map -->
         <script type="text/javascript">
@@ -122,14 +96,6 @@
     <body>
 
         <div id="legend">
-
-            <!--     Time Slider HTML -->
-            <div>
-                <label for="amount">Year time slider</label>
-                <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
-            </div>
-            <div id="slider-range" style="height: 250px;"></div>
-
             <!-- 	Information panel on left side -->
             <div id="sweetenpanel">
                 <h4>Sweeten produces a regular...</h4>
