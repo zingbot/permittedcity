@@ -137,18 +137,9 @@ div.bullet {
 	padding:20px;
 }
 
-/* popup windowtype */
+/* Popup content */
 
-div.cartodb-popup {
-	position:relative;
-	width:250px;
-	height:auto;
-	padding:7px 0 0;
-	margin:0;
-	background:url(../img/light.png) no-repeat -226px 0;
-}
-
-div.cartodb-popup-content h1 {
+div.popup-content h1 {
 	padding:0 0 5px;
 	font-family:'Montserrat',sans-serif;
 	color:#000;
@@ -158,7 +149,7 @@ div.cartodb-popup-content h1 {
 	word-wrap:break-word;
 }
 
-div.cartodb-popup-content h2 {
+div.popup-content h2 {
 	padding:5px 0 0;
 	text-transform:capitalize;
 	font-family:'Montserrat',sans-serif;
@@ -166,51 +157,49 @@ div.cartodb-popup-content h2 {
 	line-height:.85em;
 }
 
-div.cartodb-popup-content h3 {
+div.popup-content h3 {
 	padding:3px 0 0;
 }
 
-div.cartodb-popup-content h4 {
+div.popup-content h4 {
 	padding:5px 0 0;
 	font-size:12px;
 }
 
-div.cartodb-popup-content h3 {
+div.popup-content h3 {
 	font-family:'Montserrat',san-serif;
 	font:400 .25em;
 }
 
-div.cartodb-popup-content h4 {
+div.popup-content h4 {
 	font-family:'Montserrat',san-serif;
 	font:400 .15em;
 }
 
-div.cartodb-popup-content h5 {
+div.popup-content h5 {
 	padding:10px 0 0;
 	font-family:"Montserrat",Arial;
 	font-size:9px;
 	text-transform:uppercase;
 }
 
-div.cartodb-popup-content h6 {
+div.popup-content h6 {
 	font-family:"Montserrat",Arial;
 	font-size:18px;
 }
 
-div.cartodb-popup-content a {
+div.popup-content a {
 	font-family:'Montserrat',san-serif;
 	font:400 .15em;
 }
 
-div.cartodb-popup {
-	position:relative;
-	width:226px;
-	height:auto;
-	padding:5px 0 0;
-	margin:0;
-	background:url(../img/light.png) no-repeat -226px 0;
+.popup-content-section {
+    border-bottom: 1px solid black;
 }
 
+.leaflet-popup-scrolled {
+    border: 0;
+}
 
 /* Zoom changes */
 
