@@ -55,7 +55,8 @@
         <!-- Javascript for map -->
         <script type="text/javascript">
 
-            //These are the actions for the Year Select buttons      
+            // These were the actions for the Year Select buttons, their 
+            // queries will be useful for the slider
             var LayerActions = {
                 all: function(){
                     sublayers[1].setSQL("SELECT * FROM swmasterfinal");
@@ -114,13 +115,6 @@
                     }).on('error', function() {
                         console.log("some error occurred");
                     });
-
-                //this might be out of order
-                $('.button').click(function() {
-                $('.button').removeClass('selected');
-                $(this).addClass('selected');
-                    LayerActions[$(this).attr('id')]();
-                });		
             });
         </script>
 
@@ -128,13 +122,6 @@
     <body>
 
         <div id="legend">
-
-            <!-- Buttons: a test of SQL. Might be taken out-->
-            <!--
-            <div id='menu'>
-                <a href="#twelve" id="twelve" class="button 2012">2012</a> <a href="#thirteen" id="thirteen" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
-            </div>
-            -->
 
             <!--     Time Slider HTML -->
             <div>
@@ -162,7 +149,7 @@
                         <h4>{{content.data._display}}</h4>
                             
                         <!--  Loads the job page from the NYC DOB site -->
-                        <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a></br>
+                        <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a><br />
                               
                         <!--      Loads the building information page form the NYC DOB site -->
                         <a href = "http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{content.data.bin__}}" target="blank" >Building No.{{content.data.bin__}}  </a>
