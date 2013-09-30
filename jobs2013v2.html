@@ -37,12 +37,11 @@
 
             // Build the SQL for the layer that will be displayed
             function buildSQL() {
-                var sql =  
-                    "SELECT * " +
-                    "FROM swmasterfinal " + 
-                    "WHERE pre__filing_date >= '" + dateMin + "'::DATE AND " +
+                var baseQuery = "SELECT * FROM swmasterfinal";
+                var conditions =  
+                    "pre__filing_date >= '" + dateMin + "'::DATE AND " +
                     "pre__filing_date < '" + dateMax + "'::DATE";
-                return sql;
+                return [baseQuery, conditions].join(' WHERE ');
             }
 
             // Update the display layer's SQL
