@@ -27,24 +27,30 @@
         <!-- Javascript for map -->
         <script type="text/javascript">
 
-            // These were the actions for the Year Select buttons, their 
-            // queries will be useful for the slider
-            var LayerActions = {
-                all: function(){
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal");
-                    return true;
-                },
-                twelve: function(){
-                    //this SQL tested in CartoDB
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2012'");
-                    return true;
-                },
-                thirteen: function(){
-                    //this SQL tested in CartoDB
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2013'");
-                    return true;
+            var initialDateMin = new Date(2012, 1, 1),
+                initialDateMax = new Date(2013, 1, 1);
+
+            // Global state variables
+            var dateMin = moment(initialDateMin).format('YYYY-MM-DD'),
+                dateMax = moment(initialDateMax).format('YYYY-MM-DD'),
+                sublayers = [];
+
+            // Build the SQL for the layer that will be displayed
+            function buildSQL() {
+                var sql =  
+                    "SELECT * " +
+                    "FROM swmasterfinal " + 
+                    "WHERE pre__filing_date >= '" + dateMin + "'::DATE AND " +
+                    "pre__filing_date < '" + dateMax + "'::DATE";
+                return sql;
+            }
+
+            // Update the display layer's SQL
+            function updateLayerSQL() {
+                if (sublayers[0] !== undefined) {
+                    sublayers[0].setSQL(buildSQL());
                 }
-            };
+            }
 
             $(document).ready(function () {
 
@@ -69,14 +75,9 @@
                 cartodb.createLayer(map,layerURL)
                    .addTo(map)
                    .on('done', function(layer) {
-                        // get sublayer 0 and set the infowindow template
-
-                        //This is for the time buttons THIS IS CAUSING AN ERROR
-                        var sublayers = [];
-
-                        //gets viz layers. 0 is layer 1, 1 is layer 2
+                        // Gets viz layers. 0 is layer 1, 1 is layer 2
                         var sublayer = layer.getSubLayer(1); 
-                        var subLayerOptions = {sql: "SELECT * FROM swmasterfinal"}
+                        var subLayerOptions = { sql: buildSQL() };
 
                         //This is for the time buttons
                         sublayer.set(subLayerOptions);
@@ -97,6 +98,10 @@
                         min: new Date(2007, 0, 1),
                         max: new Date(2013, 11, 1)
                     },
+                    defaultValues: {
+                        min: initialDateMin,
+                        max: initialDateMax
+                    },
                     formatter: function (val) {
                         return moment(val).format('MMMM YYYY');
                     },
@@ -104,6 +109,20 @@
                         months: 1
                     }                        
                 });
+
+                // Add event handlers to date slider
+                $('#slider').bind('valuesChanged', function (e, data) {
+                    // Update global state variables
+                    dateMin = moment(data.values.min).format('YYYY-MM-DD');
+
+                    // Add a month so we can ask for records less than dateMax 
+                    // and still get records in the max month
+                    dateMax = moment(data.values.max).add('months', 1).format('YYYY-MM-DD');
+
+                    // Update the SQL of the layer
+                    updateLayerSQL();
+                });
+
             });
         </script>
 
