@@ -47,6 +47,28 @@
                 var conditions =  
                     "pre__filing_date >= '" + dateMin + "'::DATE AND " +
                     "pre__filing_date < '" + dateMax + "'::DATE";
+
+                // Get the initial cost conditions
+                var expensiveness_conditions = [];
+                $('#filters #expensiveness :input:checked').each(function (i, checkbox) {
+                    // Add a condition for each checked box
+                    var lessthan = $(checkbox).data('less-than');
+                    var greaterthan = $(checkbox).data('greater-than');
+
+                    var c = [];
+                    if (lessthan !== undefined) {
+                        c.push('initial_cost <= ' + lessthan);
+                    }
+                    if (greaterthan !== undefined) {
+                        c.push('initial_cost > ' + greaterthan);
+                    }
+
+                    expensiveness_conditions.push('(' + c.join(' AND ') + ')');
+                });
+                if (expensiveness_conditions.length !== 0) {
+                    conditions += ' AND (' + expensiveness_conditions.join(' OR ') + ')';
+                }
+
                 return conditions;
             }
 
@@ -177,6 +199,10 @@
                     updateLayerSQL();
                 });
 
+                $('#filters #expensiveness :input').change(function () {
+                    updateLayerSQL();
+                });
+
             });
         </script>
 
@@ -184,7 +210,28 @@
     <body>
 
         <div id="legend">
-            <!-- 	Information panel on left side -->
+            <!-- Information panel on left side -->
+            <div id="filters">
+                <ul id="expensiveness">
+                    <li>
+                        <label for="expensiveness0">less than $350,000</label>
+                        <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox"></input> 
+                    </li>
+                    <li>
+                        <label for="expensiveness1">between $350,000 and $1,000,000</label>
+                        <input checked="checked" id="expensiveness1" data-less-than="1000000" data-greater-than="350000" type="checkbox"></input> 
+                    </li>
+                    <li>
+                        <label for="expensiveness2">between $1,000,000 and $5,000,000</label>
+                        <input checked="checked" id="expensiveness2" data-less-than="5000000" data-greater-than="1000000" type="checkbox"></input> 
+                    </li>
+                    <li>
+                        <label for="expensiveness3">over $5,000,000</label>
+                        <input checked="checked" id="expensiveness3" data-greater-than="5000000" type="checkbox"></input> 
+                    </li>
+                </ul>
+            </div>
+
             <div id="sweetenpanel">
                 <h4>Sweeten produces a regular...</h4>
             </div>
