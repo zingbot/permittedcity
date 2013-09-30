@@ -53,24 +53,7 @@ div.bullet {
 	width:100px;
 }
 
-div.sweetenpanel {
-	position:absolute;
-	top:200px;
-	left:100px;
-	width:100px;
-	height:60px;
-	background:transparent;
-	z-index:10;
-	position:absolute;
-	width:10%;
-	height:auto;
-	background-color:rgba(255,255,255,0.5);
-}
-
-/* obsolete legend css */
-div.custom-legend {
-	font-family:"Montserrat",Arial;
-	font-size:8px;
+.sweetenpanel {
 }
 
 /* The interactive nav (depreceated) */
