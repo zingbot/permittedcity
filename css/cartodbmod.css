@@ -6,6 +6,15 @@ hr {
 	margin:.5px;
 }
 
+#legend {
+    background: white;
+    position: absolute;
+    z-index: 2000;
+    top: 10px;
+    left: 50px;
+    padding: 15px;
+}
+
 /* Time Buttons */
 #menu {
 	position:absolute;

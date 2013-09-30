@@ -54,7 +54,26 @@
 
         <!-- Javascript for map -->
         <script type="text/javascript">
-            function main() {
+
+            //These are the actions for the Year Select buttons      
+            var LayerActions = {
+                all: function(){
+                    sublayers[1].setSQL("SELECT * FROM swmasterfinal");
+                    return true;
+                },
+                twelve: function(){
+                    //this SQL tested in CartoDB
+                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2012'");
+                    return true;
+                },
+                thirteen: function(){
+                    //this SQL tested in CartoDB
+                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2013'");
+                    return true;
+                }
+            };
+
+            $(document).ready(function () {
 
                 var map = L.map('map', { 
                     zoomControl: true,
@@ -95,54 +114,39 @@
                     }).on('error', function() {
                         console.log("some error occurred");
                     });
-            }
 
-            //These are the actions for the Year Select buttons      
-            var LayerActions = {
-                all: function(){
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal");
-                    return true;
-                },
-                twelve: function(){
-                    //this SQL tested in CartoDB
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2012'");
-                    return true;
-                },
-                thirteen: function(){
-                    //this SQL tested in CartoDB
-                    sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2013'");
-                    return true;
-                }
-            }
-
-            //this might be out of order
-            $('.button').click(function() {
-            $('.button').removeClass('selected');
-            $(this).addClass('selected');
-                LayerActions[$(this).attr('id')]();
-            });		
-            
-            window.onload = main;
+                //this might be out of order
+                $('.button').click(function() {
+                $('.button').removeClass('selected');
+                $(this).addClass('selected');
+                    LayerActions[$(this).attr('id')]();
+                });		
+            });
         </script>
 
     </head>
     <body>
 
-        <!-- Buttons: a test of SQL. Might be taken out-->
-        <div id='menu'>
-            <a href="#twelve" id="twelve" class="button 2012">2012</a> <a href="#thirteen" id="thirteen" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
-        </div>
+        <div id="legend">
 
-        <!--     Time Slider HTML -->
-        <p>
-            <label for="amount">Year time slider</label>
-            <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
-        </p>
-        <div id="slider-range" style="height: 250px;"></div>
+            <!-- Buttons: a test of SQL. Might be taken out-->
+            <!--
+            <div id='menu'>
+                <a href="#twelve" id="twelve" class="button 2012">2012</a> <a href="#thirteen" id="thirteen" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
+            </div>
+            -->
 
-        <!-- 	Information panel on left side -->
-        <div id="sweetenpanel">
-            <h4>Sweeten produces a regular...</h4>
+            <!--     Time Slider HTML -->
+            <p>
+                <label for="amount">Year time slider</label>
+                <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+            </p>
+            <div id="slider-range" style="height: 250px;"></div>
+
+            <!-- 	Information panel on left side -->
+            <div id="sweetenpanel">
+                <h4>Sweeten produces a regular...</h4>
+            </div>
         </div>
 
         <!-- Begin Map-->
