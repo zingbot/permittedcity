@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Permitted City</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.css" />
+     <link rel="stylesheet" href="css/cartodbmod.css"/>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
+          <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    #menu { 
+    position: absolute; 
+    top: 200px; 
+    left: 100px; 
+    width: 100px; 
+    height:60px; 
+    background: transparent; 
+background-color: #fff;
+    z-index:10;}
+    
+    #menu a { 
+      margin: 1px 10px 0 0;
+      float: right;
+      vertical-align: baseline;
+      width: 70px;
+      padding: 10px;
+      text-align: center;
+      font: bold 11px "Helvetica",Arial;
+      line-height: normal;
+      color: #555;
+      border-radius: 4px;
+      border: 1px solid #777777;
+      background: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #menu a.selected,
+    #menu a:hover { 
+      color: #939598;
+    }    
+    
+    </style>
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
+ <![endif]-->
+ 
+  </head>
+  <body>
+
+
+<!-- Begin Map-->
+  	
+    
+    <div id="sweetenpanel">
+	  	<h4>Sweeten produces a regular...</h4>
+    </div>
+  
+    <div id='menu'>
+    <a href="#2012" id="date_2012" class="button 2012">2012</a> 
+    <a href="#2013" id="date_2012" class="button 2013">2013</a> 
+    <a href="#all" id="all" class="button all">All Years</a>
+  </div>
+  <div id="map"> 
+  
+ 
+    <script type="infowindow/html" id="infowindow_template">
+      <div class="cartodb-popup">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+
+         <div class="cartodb-popup-content-wrapper">
+           <div class="cartodb-popup-content">
+            <h4>{{content.data._display}}</h4>
+            <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a>
+            </br>
+            <a href = "http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{content.data.bin__}}" target="blank" >Building No.{{content.data.bin__}}  </a>
+            <h2>{{content.data.addressss}}</h2>
+            <hr> 
+            <h4>Reported work cost</h4>
+            <h1> ${{content.data.initial_cost}}</h1>
+             <h4>Total Estimated Fee</h4>
+            <h6> ${{content.data.total_est_fee}}</h6>
+            <hr>
+			<h4>Owner:</h4><h3>{{content.data.owner_s_first_last_name}}</h3>
+			<hr>
+			<h4>Applicant</h4><h3>{{content.data.applicant_s_first_last_name}}</h3>
+			<h4>Title:</h4><h3>{{content.data.applicant_professional_title}}</h3>
+			
+            <h5>{{content.data.job_description}}<h5>
+           </div>
+         </div>
+         <div class="cartodb-popup-tip-container"></div>
+      </div>
+    </script>
+    <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js"></script>
+
+    
+    <script>
+      function main() {
+        var map = L.map('map', { 
+          zoomControl: true,
+          center: [40.7142, -74.0064],
+          zoom: 13,
+          maxZoom: 18,
+          minZoom:5,
+          maxBounds:[[40.49,-74.26],[40.93,-73.655]]
+        });
+        
+/* L.tileLayer('http://{s}.tile.cloudmade.com/8f4df2ed0acc44269b35bd8e5a692069/109451/256/{z}/{x}/{y}.png', { maxZoom: 20, attribution: 'Mapbox' }).addTo(map); 
+*/
+
+        L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { maxZoom: 17,
+          attribution: 'Mapbox'
+        }).addTo(map);
+  
+		var layerURL = 'http://zingbot.cartodb.com/api/v2/viz/1a843f50-1f0a-11e3-a567-5404a6a69006/viz.json';
+		
+
+        cartodb.createLayer(map,layerURL)
+         .addTo(map)
+         .on('done', function(layer) {
+           // get sublayer 0 and set the infowindow template
+           
+        var sublayers = [];
+
+        var sublayer = layer.getSubLayer(1);
+           
+        var subLayerOptions = {sql: "SELECT * FROM swmasterfinal"}
+      
+	  	sublayer.set(subLayerOptions);
+	  	
+	  	sublayers.push(sublayer);
+	  	
+        sublayer.infowindow.set('template', $('#infowindow_template').html());
+          }).on('error', function() {
+            console.log("some error occurred");
+          });
+          sublayer.on('featureClick', function(e, pos, latlng, data) {
+    alert("Hey! You clicked " + data.cartodb_id);
+  });
+      }
+     var LayerActions = {
+    all: function(){
+      sublayers[1].setSQL("SELECT * FROM swmasterfinal");
+      return true;
+    },
+    date_2012: function(){
+      sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2012'");
+      return true;
+    },
+    date_2013: function(){
+      sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2013'");
+      return true;
+    }
+  }
+    $('.button').click(function() {
+    $('.button').removeClass('selected');
+    $(this).addClass('selected');
+    LayerActions[$(this).attr('id')]();
+  });
+
+      window.onload = main;
+    </script>
+   
+    </div>
+</div>
+
+  </body>
+</html>

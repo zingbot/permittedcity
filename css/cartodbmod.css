@@ -1,0 +1,213 @@
+hr {
+	border:.25px;
+	width:80%;
+	color:#2b2b2b;
+	height:.25px;
+	margin:.5px;
+}
+
+/* Time Buttons */
+#menu {
+	position:absolute;
+	top:200px;
+	left:100px;
+	width:100px;
+	height:60px;
+	background:transparent;
+	background-color:#fff;
+	z-index:10;
+}
+
+#menu a {
+	margin:1px 10px 0 0;
+	float:right;
+	vertical-align:baseline;
+	width:70px;
+	padding:10px;
+	text-align:center;
+	font:bold 11px Helvetica,Arial;
+	line-height:normal;
+	color:#555;
+	border-radius:4px;
+	border:1px solid #777;
+	background:#fff;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+#menu a.selected,#menu a:hover {
+	color:#939598;
+}
+
+/* not sure where this is */
+#timebuttons {
+	position:absolute;
+	top:0;
+	left:100px;
+}
+
+
+div.bullet {
+	width:100px;
+}
+
+div.sweetenpanel {
+	position:absolute;
+	top:200px;
+	left:100px;
+	width:100px;
+	height:60px;
+	background:transparent;
+	z-index:10;
+	position:absolute;
+	width:10%;
+	height:auto;
+	background-color:rgba(255,255,255,0.5);
+}
+
+/* obsolete legend css */
+div.custom-legend {
+	font-family:"Montserrat",Arial;
+	font-size:8px;
+}
+
+/* The interactive nav (depreceated) */
+#layer_selector {
+	position:absolute;
+	bottom:40px;
+	right:120px;
+	padding:0;
+}
+
+#layer_selector ul {
+	padding:0;
+	margin:0;
+	list-style-type:none;
+	display:inline;
+}
+
+#layer_selector li {
+	display:inline;
+	border-bottom:1px solid #999;
+	padding:5px 10px;
+	font-family:"Montserrat",Arial;
+	font-size:13px;
+	color:#444;
+	cursor:auto;
+}
+
+#layer_selector li:hover {
+	background-color:#F0F0F0;
+	cursor:pointer;
+}
+
+#layer_selector li.selectedmonth {
+	background-color:#EEE;
+}
+
+#layer_selector li.selectedyear {
+	background-color:#EEE;
+}
+
+
+/* Future Feature */
+#data_charts {
+	top:140px;
+	left:50px;
+	padding:50px;
+	font-family:"Montserrat",Arial;
+	font-size:13px;
+	color:#444;
+}
+
+#data_charts ul {
+	padding:29px 6px 43px 1px;
+	margin:0;
+	list-style-type:none;
+	display:list-item;
+}
+
+#data_charts li {
+	padding:10px;
+	margin:0;
+	list-style-type:none;
+	display:list-item;
+}
+
+#data_charts li.data_charts_stack {
+	padding:20px;
+}
+
+/* popup windowtype */
+
+div.cartodb-popup {
+	position:relative;
+	width:250px;
+	height:auto;
+	padding:7px 0 0;
+	margin:0;
+	background:url(../img/light.png) no-repeat -226px 0;
+}
+
+div.cartodb-popup-content h1 {
+	padding:0 0 5px;
+	font-family:'Montserrat',sans-serif;
+	color:#000;
+	font:700 8px;
+	line-height:1em;
+	text-shadow:0 1px rgba(0,0,0,0.5);
+	word-wrap:break-word;
+}
+
+div.cartodb-popup-content h2 {
+	padding:5px 0 0;
+	text-transform:capitalize;
+	font-family:'Montserrat',sans-serif;
+	font:400 .5em;
+	line-height:.85em;
+}
+
+div.cartodb-popup-content h3 {
+	padding:3px 0 0;
+}
+
+div.cartodb-popup-content h4 {
+	padding:5px 0 0;
+	font-size:12px;
+}
+
+div.cartodb-popup-content h3 {
+	font-family:'Montserrat',san-serif;
+	font:400 .25em;
+}
+
+div.cartodb-popup-content h4 {
+	font-family:'Montserrat',san-serif;
+	font:400 .15em;
+}
+
+div.cartodb-popup-content h5 {
+	padding:10px 0 0;
+	font-family:"Montserrat",Arial;
+	font-size:9px;
+	text-transform:uppercase;
+}
+
+div.cartodb-popup-content h6 {
+	font-family:"Montserrat",Arial;
+	font-size:18px;
+}
+
+div.cartodb-popup-content a {
+	font-family:'Montserrat',san-serif;
+	font:400 .15em;
+}
+
+div.cartodb-popup {
+	position:relative;
+	width:226px;
+	height:auto;
+	padding:5px 0 0;
+	margin:0;
+	background:url(../img/light.png) no-repeat -226px 0;
+}
