@@ -10,13 +10,40 @@
     <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css">
     <link rel="stylesheet" href="css/cartodbmod.css" type="text/css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" type="text/css">
-    <style type="text/css">
-    
-  html, body, #map {
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <style type="text/css">  
+		html, body, #map {
         height: 100%;
         padding: 0;
         margin: 0;
+		}
+    
+            
+      //Time Slider (In process)
+      //Dynamic time slider
+		//http://jqueryui.com/datepicker/#date-range
+		//http://jqueryui.com/slider/#range
+		//http://jqueryui.com/slider/#range-vertical
+		<script>
+   		  $(function() {
+	   		  $( "#slider-range" ).slider({
+		   		  orientation: "vertical",
+		   		  range: true,
+		   		  min:2013,
+		   		  max:2008,
+		   		  values: [ 2013, 2012, 2011, 2010, 2009 ],
+		   		  slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
       }
+    });
+    	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  });
+  </script>
+  
+  
       
 /*       	IE Styles */
     </style><!--[if lte IE 8]>
@@ -26,17 +53,27 @@
 </head>
 <body>
 
-<!-- 	Information panel on left side -->
-    <div id="sweetenpanel">
-        <h4>Sweeten produces a regular...</h4>
-    </div>
+
 
 
 <!-- Buttons: a test of SQL. Might be taken out-->
     <div id='menu'>
-        <a href="#2012" id="date_2012" class="button 2012">2012</a> <a href="#2013" id="date_2012" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
+        <a href="#twelve" id="twelve" class="button 2012">2012</a> <a href="#thirteen" id="thirteen" class="button 2013">2013</a> <a href="#all" id="all" class="button all">All Years</a>
     </div>
-
+    
+    
+<!--     Time Slider HTML -->
+		   <p><label for="amount">Year time slider</label>
+			   <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+</p>
+<div id="slider-range" style="height: 250px;"></div>
+    <!-- 	Information panel on left side -->
+    <div id="sweetenpanel">
+        <h4>Sweeten produces a regular...</h4>
+    </div>
+    
+ 
+ 
     <!-- Begin Map-->
     <div id="map">
         <script type="infowindow/html" id="infowindow_template">
@@ -68,16 +105,18 @@
 <!--      Owner and applicant -->
             <h4>Owner:</h4><h3>{{content.data.owner_s_first_last_name}}</h3>
             <hr>
-            <h4>Applicant</h4><h3>{{content.data.applicant_s_first_last_name}}</h3>
-            <h4>Title:</h4><h3>{{content.data.applicant_professional_title}}</h3>
-            
+            <h4>Applicant<h4>
+            <h3>{{content.data.applicant_s_first_last_name}}</h3>
+            <h4>Title:</h4>
+            <h3>{{content.data.applicant_professional_title}}</h3>
             <h5>{{content.data.job_description}}<h5>
-           </div>
+            </div>
          </div>
          <div class="cartodb-popup-tip-container"></div>
         </div>
+        
         </script> <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js" type="text/javascript">
-</script> 
+		</script> 
 
 <!-- Javascript for map -->
 <script type="text/javascript">
@@ -104,48 +143,55 @@ function main() {
         cartodb.createLayer(map,layerURL)
          .addTo(map)
          .on('done', function(layer) {
+         
+         
            // get sublayer 0 and set the infowindow template
-           
+   
+		//This is for the time buttons THIS IS CAUSING AN ERROR
         var sublayers = [];
         
         //gets viz layers. 0 is layer 1, 1 is layer 2
         var sublayer = layer.getSubLayer(1); 
         var subLayerOptions = {sql: "SELECT * FROM swmasterfinal"}
 
+		//This is for the time buttons
         sublayer.set(subLayerOptions);
+		sublayers.push(sublayer);
 
-        sublayers.push(sublayer);
-
+		//This is where the infowindow is activated
         sublayer.infowindow.set('template', $('#infowindow_template').html());
           }).on('error', function() {
             console.log("some error occurred");
           });
-          sublayer.on('featureClick', function(e, pos, latlng, data) {
-        alert("Hey! You clicked " + data.cartodb_id);
-        });
-        }
+                }
+                
+        //These are the actions for the Year Select buttons      
         var LayerActions = {
         all: function(){
         sublayers[1].setSQL("SELECT * FROM swmasterfinal");
         return true;
         },
-        date_2012: function(){
+        twelve: function(){
+        //this SQL tested in CartoDB
         sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2012'");
         return true;
         },
-        date_2013: function(){
+        thirteen: function(){
+        //this SQL tested in CartoDB
         sublayers[1].setSQL("SELECT * FROM swmasterfinal WHERE EXTRACT(YEAR FROM pre__filing_date) = '2013'");
         return true;
         }
         }
+        
+        //this might be out of order
         $('.button').click(function() {
         $('.button').removeClass('selected');
         $(this).addClass('selected');
         LayerActions[$(this).attr('id')]();
-        });
-
+        });		
+		
         window.onload = main;
         </script>
-    </div>
+        </div>
 </body>
 </html>
