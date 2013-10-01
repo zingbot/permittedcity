@@ -1,5 +1,6 @@
 html, body, #map {
     height: 100%;
+    font-family:"Montserrat",Arial;
     padding: 0;
     margin: 0;
 }
@@ -89,7 +90,7 @@ div.bullet {
 	display:inline;
 	border-bottom:1px solid #999;
 	padding:5px 10px;
-	font-family:"Montserrat",Arial;
+	
 	font-size:13px;
 	color:#444;
 	cursor:auto;
@@ -139,12 +140,15 @@ div.bullet {
 
 /* Popup content */
 
+div.filters{
+	background-color: fuchsia
+	
+}
 div.popup-content h1 {
 	padding:0 0 5px;
-	font-family:'Montserrat',sans-serif;
 	color:#000;
 	font:700 8px;
-	line-height:1em;
+	line-height:auto;
 	text-shadow:0 1px rgba(0,0,0,0.5);
 	word-wrap:break-word;
 }
