@@ -168,11 +168,11 @@
 
                 // Initialize the date slider
                 $('#slider').dateRangeSlider({
-                    arrows: false,
+                    arrows: true,
                     bounds: {
                         // 0-based months
-                        min: new Date(2007, 0, 1),
-                        max: new Date(2013, 11, 1)
+                        min: new Date(2012, 0, 1),
+                        max: new Date(2013, 8, 1)
                     },
                     defaultValues: {
                         min: initialDateMin,
@@ -214,7 +214,7 @@
             <div id="filters">
                 <ul id="expensiveness">
                     <li>
-                        <label for="expensiveness0">up to $350,000</label>
+                        <label id="expensiveness0" for="expensiveness0">up to $350,000</label>
                         <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox"></input> 
                     </li>
                     <li>
@@ -231,9 +231,9 @@
                     </li>
                 </ul>
             </div>
-
+<hr/>
             <div id="sweetenpanel">
-                <h4>Sweeten produces a regular...</h4>
+                <h4>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h4>
             </div>
         </div>
 
@@ -263,7 +263,7 @@
                         <h1> ${{initial_cost}}</h1>
                         <h4>Total Estimated Fee</h4>
                         <h6> ${{total_est_fee}}</h6>
-                        <hr />
+                      
 
                         <!-- Owner and applicant -->
                         <h4>Owner:</h4><h3>{{owner_s_first_last_name}}</h3>
