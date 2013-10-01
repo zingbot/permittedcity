@@ -25,24 +25,23 @@ hr {
 	left:50px;
 	padding:15px;
 	width:200px;
-	height:45%;
+	height:400px;
 
 }
 
 #legend  li {
-	font-size: 12px;
-	list-style:none
-	
-}
-#legend  h4 {
-	font-size: 13px;
+	font-size: 10px;
+	margin: 17px 0px 9px 0px;
+	text-transform: uppercase;
+	list-style: none
+
 }
 
 
 #slider {
 	position:absolute;
-	bottom:50px;
-	left:150px;
+	bottom:330px;
+	left:290px;
 	width:80%;
 	z-index:2000;
 }
@@ -133,6 +132,28 @@ hr {
 	background: transparent;
 	}
 	
+	h1, h2, h3, h4, h5, h6 {
+display: inline-block;
+-webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+
+h1{
+	font-size: 2em;
+	-webkit-margin-before: .25em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	
+}
+
+h4 { 
+	color: #8F8F8F;
+	text-transform: uppercase; 
+	
+}
 .leaflet-container a.leaflet-popup-close-button:hover {
 	color: #999;
 	}
