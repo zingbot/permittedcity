@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Permitted City</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.css" />
+     <link rel="stylesheet" href="css/cartodbmod.css"/>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
+ <![endif]-->
+  </head>
+  <body>
+
+
+<!-- Begin Map-->
+    <div id="map">   
+    
+<!--Begin Interactive Menu -->
+   <div id="layer_selector" class="cartodb-infobox">
+       <ul>
+        <li data="all" class="selectedyear">Select years</li>
+        <li data="2003">2003</li>
+        <li data="2004">2004</li>
+        <li data="2005">2005</li>
+        <li data="2006">2006</li>
+        <li data="2007">2007</li>
+        <li data="2008">2008</li>
+        <li data="2009">2009</li>
+        <li data="2010">2010</li>
+        <li data="2011">2011</li>
+        <li data="2012">2012</li>
+        <li data="2013">2013</li>
+      </ul>
+    </div>
+    
+    
+    <script type="infowindow/html" id="infowindow_template">
+     <!--  <span> TS </span> -->
+      <div class="cartodb-popup">
+        <a href="#close" class="cartodb-popup-close-button close">x</a>
+
+         <div class="cartodb-popup-content-wrapper">
+           <div class="cartodb-popup-content">
+            <h4>{{content.data._display}}</h4>
+            <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{content.data.job__}}" target="blank"> Job No. {{content.data.job__}}</a>
+            </br>
+            <a href = "http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{content.data.bin__}}" target="blank" >Building No.{{content.data.bin__}}  </a>
+            <h2>{{content.data.addressss}}</h2>
+            <hr> 
+            <h4>Reported work cost</h4>
+            <h1> ${{content.data.initial_cost}}</h1>
+             <h4>Total Estimated Fee</h4>
+            <h6> ${{content.data.total_est_fee}}</h6>
+            <hr>
+			<h3>Owner: </br> {{content.data.owner_s_first_last_name}}</h3>
+			</br><hr>
+			<h3>Applicant</br> {{content.data.applicant_s_first_last_name}}</h3>
+			<h4>Title: {{content.data.applicant_professional_title}}</h4>
+			
+            <h5>{{content.data.job_description}}<h5>
+           </div>
+         </div>
+         <div class="cartodb-popup-tip-container"></div>
+      </div>
+    </script>
+
+    <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js"></script>
+
+    <script>
+      function main() {
+        var map = L.map('map', { 
+          zoomControl: true,
+          center: [40.7142, -74.0064],
+          zoom: 13,
+          maxZoom: 17,
+          minZoom:5,
+          maxBounds:[[40.5,-74.2],[40.88,-73.738]]
+      
+        });
+
+        L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { maxZoom: 20,
+          attribution: 'Mapbox'
+        }).addTo(map);
+
+		var layerURL = 'http://zingbot.cartodb.com/api/v2/viz/1a843f50-1f0a-11e3-a567-5404a6a69006/viz.json';
+
+        cartodb.createLayer(map,layerURL)
+         .addTo(map)
+         .on('done', function(layer) {
+           // get sublayer 0 and set the infowindow template
+           var sublayer = layer.getSubLayer(1);
+           
+           
+           sublayer.infowindow.set('template', $('#infowindow_template').html());
+          }).on('error', function() {
+            console.log("some error occurred");
+          });
+      }
+
+      window.onload = main;
+    </script>
+   
+    </div>
+</div>
+
+  </body>
+</html>
