@@ -1,8 +1,8 @@
-html, body, #map {
-    height: 100%;
-    font-family:"Montserrat",Arial;
-    padding: 0;
-    margin: 0;
+html,body,#map {
+	height:100%;
+	font-family:"Montserrat",Arial;
+	padding:0;
+	margin:0;
 }
 
 hr {
@@ -14,30 +14,35 @@ hr {
 }
 
 #legend {
-    background: white;
-    border-radius: 0px 2px 4px 4px;
-    box-shadow: 0 1px 10px rgba(0,0,0,0.65);
-    position: absolute;
-    z-index: 2000;
-    top: 10px;
-    left: 50px;
-    padding: 15px;
-    width: 20%;
-    height: 700px;
+	background:#fff;
+	border-radius:0 2px 4px 4px;
+	box-shadow:0 1px 10px rgba(0,0,0,0.65);
+	position:absolute;
+	z-index:2000;
+	top:10px;
+	left:50px;
+	padding:15px;
+	width:20%;
+	height:700px;
+	font-size:150%;
+
 }
 
- #sweetenpanel{
-  	text-size: 30px
-  	line-height:40px;
-  }
+#legend  li {
+	font-size: 16px;
+	list-style: disc
+}
+#legend  h4 {
+	font-size: 12px;
+}
 
 
 #slider {
-    position: absolute;
-    bottom: 50px;
-    left: 150px;
-    width: 80%;
-    z-index: 2000;
+	position:absolute;
+	bottom:50px;
+	left:150px;
+	width:80%;
+	z-index:2000;
 }
 
 /* Time Buttons */
@@ -45,7 +50,7 @@ hr {
 	position:absolute;
 	top:300px;
 	left:50px;
-	width:00px;
+	width:0;
 	height:100px;
 	background:transparent;
 	z-index:10;
@@ -72,255 +77,246 @@ hr {
 	color:#939598;
 }
 
-div.bullet {
-	width:100px;
-}
-
-.sweetenpanel {
-}
-
-/* The interactive nav (depreceated) */
-#layer_selector {
-	position:absolute;
-	bottom:40px;
-	right:120px;
-	padding:0;
-}
-
-#layer_selector ul {
-	padding:0;
-	margin:0;
-	list-style-type:none;
-	display:inline;
-}
-
-#layer_selector li {
-	display:inline;
-	border-bottom:1px solid #999;
-	padding:5px 10px;
-	
-	font-size:13px;
-	color:#444;
-	cursor:auto;
-}
-
-#layer_selector li:hover {
-	background-color:#F0F0F0;
-	cursor:pointer;
-}
-
-#layer_selector li.selectedmonth {
-	background-color:#EEE;
-}
-
-#layer_selector li.selectedyear {
-	background-color:#EEE;
-}
-
-
-/* Future Feature */
-#data_charts {
-	top:140px;
-	left:50px;
-	padding:50px;
-	font-family:"Montserrat",Arial;
-	font-size:13px;
-	color:#444;
-}
-
-#data_charts ul {
-	padding:29px 6px 43px 1px;
-	margin:0;
-	list-style-type:none;
-	display:list-item;
-}
-
-#data_charts li {
-	padding:10px;
-	margin:0;
-	list-style-type:none;
-	display:list-item;
-}
-
-#data_charts li.data_charts_stack {
-	padding:20px;
-}
-
 /* Popup content */
-
-div.filters{
-	background-color: fuchsia
-	
+div.filters {
+	background-color:#f0f;
 }
+
+div.popup-content {
+	padding:0;
+}
+
 div.popup-content h1 {
-	padding:0 0 5px;
-	color:#000;
-	font:700 8px;
-	line-height:auto;
-	text-shadow:0 1px rgba(0,0,0,0.5);
-	word-wrap:break-word;
 }
 
 div.popup-content h2 {
-	padding:5px 0 0;
 	text-transform:capitalize;
-	font-family:'Montserrat',sans-serif;
-	font:400 .5em;
-	line-height:.85em;
-}
-
-div.popup-content h3 {
-	padding:3px 0 0;
+	font:400 20px;
 }
 
 div.popup-content h4 {
-	padding:5px 0 0;
-	font-size:12px;
 }
 
 div.popup-content h3 {
-	font-family:'Montserrat',san-serif;
-	font:400 .25em;
-}
-
-div.popup-content h4 {
-	font-family:'Montserrat',san-serif;
-	font:400 .15em;
 }
 
 div.popup-content h5 {
 	padding:10px 0 0;
-	font-family:"Montserrat",Arial;
 	font-size:9px;
 	text-transform:uppercase;
 }
 
 div.popup-content h6 {
-	font-family:"Montserrat",Arial;
 	font-size:18px;
 }
 
 div.popup-content a {
-	font-family:'Montserrat',san-serif;
 	font:400 .15em;
 }
 
 .popup-content-section {
-    border-bottom: 1px solid black;
+	border-bottom:1px solid #000;
 }
 
 .leaflet-popup-scrolled {
-    border: 0;
+	border:0;
 }
 
 /* Zoom changes */
-
 div.cartodb-zoom {
-    position: relative;
-    float:left;
-    display:block;
-    margin: 20px 0 0 20px;
-    width: 28px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    z-index: 5;
-    background: white;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-  }
+	position:relative;
+	float:left;
+	display:block;
+	margin:20px 0 0 20px;
+	width:28px;
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	z-index:5;
+	background:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #999;
+}
 
-  div.cartodb-zoom a {
-    position:relative;
-    display: block;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    font: bold 20px "Arial";
-    color: #999999;
-    text-align: center;
-    line-height: normal;
-    text-decoration: none;
-    text-indent: -9999px;
-    line-height: 0;
-    font-size: 0;
-    background:url('../img/other.png') no-repeat 0 0;
-  }
+div.cartodb-zoom a {
+	position:relative;
+	display:block;
+	width:28px;
+	height:28px;
+	padding:0;
+	font:bold 20px Arial;
+	color:#999;
+	text-align:center;
+	line-height:normal;
+	text-decoration:none;
+	text-indent:-9999px;
+	line-height:0;
+	font-size:0;
+	background:url(../img/other.png) no-repeat 0 0;
+}
 
-  div.cartodb-zoom a.zoom_in {
-    border-bottom: 1px solid #E6E6E6;
-    background-position:-68px 10px;
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    -moz-border-radius-topright: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
+div.cartodb-zoom a.zoom_in {
+	border-bottom:1px solid #E6E6E6;
+	background-position:-68px 10px;
+	-webkit-border-top-left-radius:4px;
+	-webkit-border-top-right-radius:4px;
+	-moz-border-radius-topleft:4px;
+	-moz-border-radius-topright:4px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
 
-  div.cartodb-zoom a.zoom_in:hover {
-    background-position:-68px -14px;
-    cursor: pointer;
-  }
+div.cartodb-zoom a.zoom_in:hover {
+	background-position:-68px -14px;
+	cursor:pointer;
+}
 
-  div.cartodb-zoom a.zoom_out {
-    background-position:-94px 10px;
-    -webkit-border-bottom-left-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    -moz-border-radius-bottomright: 4px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
+div.cartodb-zoom a.zoom_out {
+	background-position:-94px 10px;
+	-webkit-border-bottom-left-radius:4px;
+	-webkit-border-bottom-right-radius:4px;
+	-moz-border-radius-bottomleft:4px;
+	-moz-border-radius-bottomright:4px;
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
 
-  div.cartodb-zoom a.zoom_out:hover {
-    background-position:-94px -14px;
-    cursor: pointer;
-  }
+div.cartodb-zoom a.zoom_out:hover {
+	background-position:-94px -14px;
+	cursor:pointer;
+}
 
-  div.cartodb-zoom a.disabled {
-    filter: alpha(opacity=20);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
-    opacity: 0.2;
-  }
+div.cartodb-zoom a.disabled {
+	filter:alpha(opacity=20);
+	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+	opacity:.2;
+}
 
-  div.cartodb-zoom a.disabled:hover {
-    cursor: default;
-    color: #999999;
-  }
+div.cartodb-zoom a.disabled:hover {
+	cursor:default;
+	color:#999;
+}
 
+/* CartoDB zoom info control */
+div.cartodb-zoom-info {
+	position:absolute;
+	display:block;
+	top:100px;
+	left:20px;
+	margin:20px 0 0;
+	width:28px;
+	height:28px;
+	font:normal 13px Helvetica,Arial;
+	color:#858585;
+	text-align:center;
+	line-height:28px;
+	-webkit-box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	-moz-box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	box-shadow:rgba(0,0,0,0.2) 0 0 4px 2px;
+	z-index:5;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	-ms-border-radius:4px;
+	-o-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #999;
+	background:#fff;
+}
 
-  /* CartoDB zoom info control */
+.ui-rangeSlider {
+	height:10px;
+}
 
-  div.cartodb-zoom-info {
-    position:absolute;
-    display:block;
-    top:100px;
-    left:20px;
-    margin:20px 0 0 0;
-    width: 28px;
-    height:28px;
-    font:normal 13px "Helvetica",Arial;
-    color:#858585;
-    text-align: center;
-    line-height: 28px;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
-    z-index: 5;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-    background: white;
-  }
-  
-  div.ui-rangeSlider-label-value {
-	 
-  }
+.ui-rangeSlider .ui-rangeSlider-innerBar {
+	height:13px;
+	border-bottom-style: outset;	
+	margin:3px 6px;
+	background:#DDD;
+}
+
+.ui-rangeSlider .ui-rangeSlider-handle {
+	width:10px;
+	height:20px;
+	border-bottom-style: outset;
+	background:#AAA;
+	background:rgba(255,255,255,1);
+	cursor:col-resize;
+}
+
+/* selected range bar */
+.ui-rangeSlider .ui-rangeSlider-bar {
+	height:9px;
+	margin:2px 0px 0px 0px;
+	background:#CCC;
+	background:rgba(0,0,255,1);
+	height:15px;
+	cursor:move;
+	cursor:grab;
+	cursor:-moz-grab;
+}
+
+.ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging {
+	cursor:-moz-grabbing;
+	cursor:grabbing;
+}
+
+.ui-rangeSlider-arrow {
+	height:10px;
+	margin:2px 0;
+	width:10px;
+	background-repeat:no-repeat;
+}
+
+.ui-rangeSlider-arrow.ui-rangeSlider-leftArrow {
+	background-image:url(icons-classic/resultset_previous.png);
+	background-position:center left;
+}
+
+.ui-rangeSlider-arrow.ui-rangeSlider-rightArrow {
+	background-image:url(icons-classic/resultset_next.png);
+	background-position:center right;
+}
+
+.ui-rangeSlider-arrow-inner {
+	display:none;
+}
+
+.ui-rangeSlider-container {
+	height:22px;
+}
+
+.ui-rangeSlider-withArrows .ui-rangeSlider-container {
+	margin:0 11px;
+}
+
+.ui-rangeSlider-noArrow .ui-rangeSlider-container {
+	margin:0;
+}
+
+.ui-rangeSlider-label {
+font-size: small;
+	margin:0 2px 2px;
+	background-image:url(icons-classic/label.png);
+	background-position:bottom center;
+	background-repeat:no-repeat;
+	display: block;
+	white-space:pre-wrap;
+	bottom:20px;
+	padding:3px 6px 2px;
+	cursor:col-resize;
+}
+
+.ui-rangeSlider-label-inner {
+font-size: large;
+	display:none;
+}
+
+input.ui-editRangeSlider-inputValue {
+	width:1em;
+	vertical-align:left
+	text-align:center;
+}
