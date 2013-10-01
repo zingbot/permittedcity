@@ -211,7 +211,8 @@
     <body>
 
         <div id="legend">
-            <!-- Information panel on left side -->
+            <!-- Information panel on left side --><h2>NEW YORK CITY</h2>
+            <hr/>
             <div id="filters">
                 <ul id="expensiveness">
                     <li>
@@ -238,10 +239,11 @@
             <div id="sweetenpanel">
             <hr/>
 
-                <h5>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h5>
+        <h5>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h5>
                 <hr/>
-
-            </br>                
+            </div>
+            </br>   
+            <div>             
                 <form action="http://swee10.us1.list-manage.com/subscribe/post?u=468d331ad04964faf7472cc8b&amp;amp;id=8288740962" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" target="_blank">
   <fieldset>
     <input class="required email" id="mce-EMAIL" name="EMAIL" title="your.email@example.com" type="text" value="">
@@ -276,18 +278,21 @@
                         <h2>{{addressss}}</h2>
                         <h4>Reported work cost</h4>
                         <h1> ${{initial_cost}}</h1>
-                        <h4>Total Estimated Fee</h4>
-                        <h6> ${{total_est_fee}}</h6>
+                        <h4>Total Estimated Fee</h4></br>
+                        <h2> ${{total_est_fee}}</h2>
                                                 <hr> 
 
                         <!-- Owner and applicant -->
-                        <h4>Owner:</h4><h3>{{owner_s_first_last_name}}</h3>
+                        <h4>Owner:</h4></br><h3>{{owner_s_first_last_name}}</h3>
                         <hr>
-                        <h4>Applicant</h4>
-                        <h3>{{applicant_s_first_last_name}}</h3>
-                        <h4>Title:</h4>
+                        <h4>Applicant</h4></br>
+                        <h3>{{applicant_s_first_last_name}}</h3></br>
+                        <h4>Title:</h4></br>
                         <h3>{{applicant_professional_title}}</h3>
+                        </br>
+                        <h4>Job detail</h4>
                         <h5>{{job_description}}</h5>
+                        <hr/>End of Entry
                     </div>
                 {{/rows}}
             </div>
