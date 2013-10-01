@@ -212,26 +212,33 @@
 
         <div id="legend">
             <!-- Information panel on left side --><h2>NEW YORK CITY</h2>
+            
             <hr/>
             <div id="filters">
                 <ul id="expensiveness">
                     <li>
-                        <label id="expensiveness0" for="expensiveness0">up to $350,000</label>
+                <img src="img/350kbullet.png" alt="350k" height="14" width="14">
+                        
+                <label id="expensiveness0" for="expensiveness0">up to $350K</label>
                         <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox"></input> 
                     </li>
                     <li>
-                        <label for="expensiveness1">$350,000 to $1,000,000</label>
+                       <img src="img/350to1bullet.png" alt="350kto1m" height="17" width="17">
+ <label for="expensiveness1">$350K to $1M</label>
                         <input checked="checked" id="expensiveness1" data-less-than="1000000" data-greater-than="350000" type="checkbox"></input> 
                     </li>
                     <li>
-                        <label for="expensiveness2">1m to 5m</label>
+                       <img src="img/1to5bullet.png" alt="1mto5m" height="22" width="23">
+ <label for="expensiveness2">$1m to $5m</label>
                         <input checked="checked" id="expensiveness2" data-less-than="5000000" data-greater-than="1000000" type="checkbox"></input> 
                     </li>
                     <li>
-                        <label for="expensiveness3">over $5,000,000</label>
+                        <img src="img/5milplus.png" alt="5milplus" height="26" width="26">
+<label for="expensiveness3">over $5M</label>
                         <input checked="checked" id="expensiveness3" data-greater-than="5000000" type="checkbox"></input> 
                         </br>
-                     <li>   <label for="sweeten"> Sweeten</label>
+                        <hr/>
+                     <li> <img src="img/5milplus.png" alt="Sweeten Projects" height="26" width="26">  <label for="sweeten"> Sweeten</label>
                     </li>
                 </ul>
                 
@@ -252,15 +259,18 @@
 </form>
 
             </div>
+            
         </div>
 
-        <div id="slider"></div>
+        
 
         <!-- Begin Map-->
         <div id="map"></div>
-
+<div id="slider"></div>
         <script type="infowindow/html" id="infowindow_template">
             <div class="popup-content">
+            <strong>Scroll down</strong> to get all jobs at this location.
+            <hr/>
                 <!-- This iteratates over each row that was returned from the SQL query -->
                 {{#rows}}
                     <div class="popup-content-section">
@@ -292,7 +302,7 @@
                         </br>
                         <h4>Job detail</h4>
                         <h5>{{job_description}}</h5>
-                        <hr/>End of Entry
+                        <hr/><h4>End of Entry
                     </div>
                 {{/rows}}
             </div>
