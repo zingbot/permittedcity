@@ -90,7 +90,7 @@
                         "'POINT(" + latlng[1] + " " + latlng[0] + ")', " +
                         "4326 " +
                       "), " +
-                      "0.0005 " +
+                      "0.0004" +
                     ")";
 
                 // Add the standard WHERE conditions
@@ -141,7 +141,7 @@
                                 var content = Mustache.render($('#infowindow_template').html(), {
                                     rows: data,
                                 });
-                                L.popup({ maxHeight: 300 })
+                                L.popup({ maxHeight: 200 })
                                     .setLatLng(latlng)
                                     .setContent(content)
                                     .openOn(map);
@@ -214,15 +214,15 @@
             <div id="filters">
                 <ul id="expensiveness">
                     <li>
-                        <label for="expensiveness0">less than $350,000</label>
+                        <label for="expensiveness0">up to $350,000</label>
                         <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox"></input> 
                     </li>
                     <li>
-                        <label for="expensiveness1">between $350,000 and $1,000,000</label>
+                        <label for="expensiveness1">$350,000 to $1,000,000</label>
                         <input checked="checked" id="expensiveness1" data-less-than="1000000" data-greater-than="350000" type="checkbox"></input> 
                     </li>
                     <li>
-                        <label for="expensiveness2">between $1,000,000 and $5,000,000</label>
+                        <label for="expensiveness2">1m to 5m</label>
                         <input checked="checked" id="expensiveness2" data-less-than="5000000" data-greater-than="1000000" type="checkbox"></input> 
                     </li>
                     <li>
