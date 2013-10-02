@@ -27,16 +27,13 @@ hr {
 	padding-right: 1px;
 }
 
-#separator hr {
-	line
-}
 
 #legend {
 	background:#fff;
 	box-shadow:0 px 10px rgba(0,0,0,0.65);
 	position:absolute;
 	z-index:2000;
-	top:20%;
+	bottom: 35px;
 	left:50px;
 	padding:15px;
 	width:200px;
@@ -214,6 +211,10 @@ h4 {
 	color: #0000d4;
 	margin-bottom: 1px;
 }
+
+#owner_name h3{
+	padding: 1px 0px 0px 0px;
+}
 h5{
 	text-transform: uppercase;
 	padding-right: 1px;
@@ -365,7 +366,7 @@ div.cartodb-zoom-info {
 	position:absolute;
 	bottom:50px;
 	left: 310px;
-	width:400px;
+	width:50%;
 	z-index:2000;
 }
 
@@ -406,14 +407,14 @@ div.cartodb-zoom-info {
 	margin:7px 4px 7px 12px;
 	background: #0000d4;
 	cursor:move;
-	cursor:grab;
+	cursor:hand;
 	cursor:-moz-grab;
 }
 
 .ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging {
 	cursor:-moz-grabbing;
 	background-color: #0000d4;
-	cursor:grabbing;
+	cursor:hand;
 }
 
 .ui-rangeSlider-arrow {
