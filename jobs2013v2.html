@@ -108,8 +108,21 @@
             }
 
             function getDataForBIN(bin, callback) {
+                // Only these columns are pulled from CartoDB
+                var columns = [
+                    '_display',
+                    'job__',
+                    'bin__',
+                    'addressss',
+                    "to_char(initial_cost, '999,999,999.99') AS initial_cost",
+                    "to_char(cast(total_est_fee as double precision), '999,999,999.99') AS total_est_fee",
+                    'owner_s_first_last_name',
+                    'applicant_s_first_last_name',
+                    'applicant_professional_title',
+                    'job_description'
+                ];
                 var sql = 
-                    'SELECT * ' +
+                    'SELECT ' + columns.join(',') + ' ' +
                     'FROM ' + SQL_API_TABLE + ' ' +
                     "WHERE bin__ = '" + bin + "'";
                 sql += ' AND ' + buildSQLWhereConditions() + ' ORDER BY pre__filing_date';
@@ -293,6 +306,7 @@
             <strong>Scroll down</strong> to get all jobs at this location.
             <hr/>
                 <!-- This iteratates over each row that was returned from the SQL query -->
+                <!-- Only has access to columns specified in getDataForBIN -->
                 {{#rows}}
                     <div class="popup-content-section">
                         <!-- Unformatted version of pre_filing_date -->
