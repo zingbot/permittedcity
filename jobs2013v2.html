@@ -102,6 +102,17 @@
                 });
             }
 
+            function getDataForBIN(bin, callback) {
+                var sql = 
+                    'SELECT * ' +
+                    'FROM swmasterfinal ' +
+                    "WHERE bin__ = '" + bin + "'";
+                sql += ' AND ' + buildSQLWhereConditions() + ' ORDER BY pre__filing_date';
+                $.getJSON('http://zingbot.cartodb.com/api/v2/sql?q=' + sql, function (data) {
+                    callback(data.rows);
+                });
+            }
+
             $(document).ready(function () {
 
                 var map = L.map('map', { 
@@ -133,10 +144,10 @@
                         };
                         sublayer.set(subLayerOptions);
                         sublayer.setInteraction(true);
-                        sublayer.setInteractivity(['cartodb_id', 'latitude', 'longitude']);
+                        sublayer.setInteractivity(['cartodb_id', 'latitude', 'longitude', 'bin__']);
 
                         sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
-                            getDataNearPoint([data.latitude, data.longitude], function (data) {
+                            getDataForBIN(data['bin__'], function (data) {
                                 var content = Mustache.render($('#infowindow_template').html(), {
                                     rows: data,
                                 });
