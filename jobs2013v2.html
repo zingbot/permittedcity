@@ -146,7 +146,10 @@
                 */
 
                 //Mapbox tile layer
-                L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { maxZoom: 17, attribution: 'Mapbox' }).addTo(map);
+                L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', { 
+                    maxZoom: 17,
+                    attribution: 'Mapbox'
+                }).addTo(map);
 
                 // layer id from the API
                 var layerURL = 'http://zingbot.cartodb.com/api/v2/viz/1a843f50-1f0a-11e3-a567-5404a6a69006/viz.json';
@@ -312,33 +315,33 @@
                     <div class="popup-content-section">
                         <!-- Unformatted version of pre_filing_date -->
                         <h4>{{_display}}</h4>
-                    </div>
 
-                        <!-- Loads the job page from the NYC DOB site -->
-                        <a href = "http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a><br />
+                        <!-- Load the job page from the NYC DOB site -->
+                        <a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a><br />
 
-                        <!-- Loads the building information page form the NYC DOB site -->
-                        <a href = "http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a>
+                        <!-- Load the building information page form the NYC DOB site -->
+                        <a href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a>
 
                         <!-- Address, cost of project and fee -->
                         <h2>{{addressss}}</h2>
                         <h4>Reported work cost</h4>
-                        <h1> ${{initial_cost}}</h1>
-                        <h4>Total Estimated Fee</h4></br>
-                        <h2> ${{total_est_fee}}</h2>
-                                                <hr> 
+                        <h1>${{initial_cost}}</h1>
+                        <h4>Total Estimated Fee</h4>
+                        <h2>${{total_est_fee}}</h2>
+                        <hr /> 
 
                         <!-- Owner and applicant -->
-                        <h4>Owner:</h4></br><h3>{{owner_s_first_last_name}}</h3>
-                        <hr>
-                        <h4>Applicant</h4></br>
-                        <h3>{{applicant_s_first_last_name}}</h3></br>
-                        <h4>Title:</h4></br>
+                        <h4>Owner:</h4>
+                        <h3>{{owner_s_first_last_name}}</h3>
+                        <hr />
+                        <h4>Applicant</h4>
+                        <h3>{{applicant_s_first_last_name}}</h3>
+                        <h4>Title:</h4>
                         <h3>{{applicant_professional_title}}</h3>
-                        </br>
                         <h4>Job detail</h4>
                         <h5>{{job_description}}</h5>
-                        <hr/><h4>End of Entry
+                        <hr/>
+                        <h4>End of Entry</h4>
                     </div>
                 {{/rows}}
             </div>
