@@ -28,6 +28,10 @@ hr {
 	padding-right: 1px;
 }
 
+#separator hr {
+	line
+}
+
 #legend {
 	background:#fff;
 	box-shadow:0 px 10px rgba(0,0,0,0.65);
@@ -53,6 +57,12 @@ text-align:center;
 padding: 0px 11px 0px 0px;
 margin:0px 1px 0px 0px
 }
+
+#expensiveness0 {
+	text-align: right;
+	
+}
+
 
 
 
@@ -96,7 +106,7 @@ margin:0px 1px 0px 0px
 
 	padding: 1px;
 	text-align: left;
-	-webkit-border-radius: 12px;
+	-webkit-border-radius: 0px;
 	        border-radius: 12px;
 	}
 .leaflet-popup-content {
@@ -144,6 +154,10 @@ margin:0px 1px 0px 0px
 	background: transparent;
 	}
 	
+ .binlink a{
+		font-size: 79px;
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 display: inline-block;
 -webkit-margin-before: 0em;
@@ -153,7 +167,7 @@ display: inline-block;
 }
 
 h1{
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: 700;
 	-webkit-margin-before: .25em;
 	-webkit-margin-after: 0em;
@@ -166,15 +180,32 @@ h2{
 }
 
 h4 { 
+	font-size:10px;
 	color: #8F8F8F;
 	text-transform: uppercase; 
 	padding: 6px 0px 4px 0px
 }
 
+	
+#initial_cost h1{
+	font-size:26px;
+}
+
+
+#date_display h4{
+	font-size: 30px;
+	padding: -70px 0px 0px 0px
+}
+
+#job_number a{
+	font-size: 20px;
+	padding:-50px;
+}
 h5{
 	text-transform: uppercase;
 	padding-right: 1px;
 }
+
 
 #legend h5{
 text-transform: none
@@ -317,41 +348,39 @@ div.cartodb-zoom-info {
 
 /* Slider central */
 #slider {
-	background-color:#fff;
-	height: 20px;
+	height: 2px;
 	position:absolute;
 	bottom:210px;
 	left: 300px;
-	width:300px;
+	width:400px;
 	z-index:2000;
 }
 
 .ui-rangeSlider {
 	height:10px;
+	
 }
 
 .ui-rangeSlider .ui-rangeSlider-innerBar {
-	height:13px;
-	border-bottom-style: outset;	
-	margin:3px 6px;
+	height:25px;
+	margin:1px 0px;
+	border: 0000d4;
+	border-width: 5px;
 	background:#DDD;
 }
 
 .ui-rangeSlider .ui-rangeSlider-handle {
-	width:10px;
-	height:20px;
-	border-bottom-style: outset;
-	background:#AAA;
+	width:20px;
+	height:30px;
 	background:rgba(255,255,255,1);
 	cursor:col-resize;
 }
 
 /* selected range bar */
 .ui-rangeSlider .ui-rangeSlider-bar {
-	height:2px;
-	margin:9px 0px 0px 0px;
-	background:#CCC;
-	background:rgba(0,0,255,1);
+	height:9px;
+	margin:9px;
+	background: #0000d4;
 	cursor:move;
 	cursor:grab;
 	cursor:-moz-grab;
@@ -359,6 +388,7 @@ div.cartodb-zoom-info {
 
 .ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging {
 	cursor:-moz-grabbing;
+	background-color: #0000d4;
 	cursor:grabbing;
 }
 
@@ -396,15 +426,11 @@ div.cartodb-zoom-info {
 }
 
 .ui-rangeSlider-label {
-font-size: small;
-	margin:0 2px 2px;
-	background-image:url(icons-classic/label.png);
-	background-position:bottom center;
-	background-repeat:no-repeat;
-	display: block;
-	white-space:pre-wrap;
-	bottom:20px;
-	padding:3px 6px 2px;
+font-size: 1em
+	margin:0 1px 1px;
+	background-color: 0000d4;
+	bottom:-5px;
+	padding:0px;
 	cursor:col-resize;
 }
 
@@ -414,7 +440,7 @@ font-size: large;
 }
 
 input.ui-editRangeSlider-inputValue {
-	width:1em;
+	width:2em;
 	vertical-align:left
 	text-align:center;
 }

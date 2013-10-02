@@ -114,8 +114,8 @@
                     'job__',
                     'bin__',
                     'addressss',
-                    "to_char(initial_cost, '999,999,999.99') AS initial_cost",
-                    "to_char(cast(total_est_fee as double precision), '999,999,999.99') AS total_est_fee",
+                    "to_char(initial_cost, '999,999,999') AS initial_cost",
+                    "to_char(cast(total_est_fee as double precision), '999,999,999') AS total_est_fee",
                     'owner_s_first_last_name',
                     'applicant_s_first_last_name',
                     'applicant_professional_title',
@@ -303,28 +303,32 @@
         <div id="slider"></div>
 
         <script type="infowindow/html" id="infowindow_template">
-            <div class="popup-content">
-            <strong>Scroll down</strong> to get all jobs at this location.
-            <hr/>
+         <div class="popup-content">
+                          
+                          
                 <!-- This iteratates over each row that was returned from the SQL query -->
                 <!-- Only has access to columns specified in getDataForBIN -->
-                {{#rows}}
+                                 {{#rows}}
+                                 
+               <div id='binlink'> <strong>Scroll</strong> to get all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
+            <hr/>
                     <div class="popup-content-section">
-                        <!-- Unformatted version of pre_filing_date -->
-                        <h4>{{_display}}</h4>
-
+                        
                         <!-- Load the job page from the NYC DOB site -->
-                        <a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a><br />
+                        <div id=  "job_number"><a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a></div><br />
 
                         <!-- Load the building information page form the NYC DOB site -->
-                        <a href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a>
+                        <!-- Unformatted version of pre_filing_date -->
+                        <br/>
+
+                       <div id="date_display"> <h4>{{_display}}</h4></div>
 
                         <!-- Address, cost of project and fee -->
                         <h2>{{addressss}}</h2>
-                        <h4>Reported work cost</h4>
-                        <h1>${{initial_cost}}</h1>
-                        <h4>Total Estimated Fee</h4>
-                        <h2>${{total_est_fee}}</h2>
+                         <h4>Reported work cost</h4>
+                         <div id="initial_cost"> <h1>${{initial_cost}}</h1></div>
+                      <div id="estimated_fee"  <h4>Total Estimated Fee</h4>
+                        <h2>${{total_est_fee}}</h2></div>
                         <hr /> 
 
                         <!-- Owner and applicant -->
@@ -338,8 +342,9 @@
                         <h4>Job detail</h4>
                         <h5>{{job_description}}</h5>
                         <hr/>
-                        <h4>End of Entry</h4>
+                        
                     </div>
+                   
                 {{/rows}}
             </div>
         </script> 
