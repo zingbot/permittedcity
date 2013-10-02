@@ -151,15 +151,15 @@ margin:0px 1px 0px 0px
 	}
 	
  .binlink a{
-		font-size: 79px;
+	font-size: 79px;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-display: inline-block;
--webkit-margin-before: 0em;
--webkit-margin-after: 0em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
+	display: inline-block;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
 }
 
 h1{
@@ -354,7 +354,7 @@ div.cartodb-zoom-info {
 #slider {
 	height: 2px;
 	position:absolute;
-	bottom:210px;
+	bottom:50px;
 	left: 300px;
 	width:400px;
 	z-index:2000;
@@ -430,8 +430,8 @@ div.cartodb-zoom-info {
 }
 
 .ui-rangeSlider-label {
-font-size: 1em
-	margin:0 1px 1px;
+	font-size: 1em
+	margin: 0px 0px 1px 1px;
 	background-color: 0000d4;
 	bottom:-5px;
 	padding:0px;
