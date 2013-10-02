@@ -26,6 +26,11 @@
         <!-- Javascript for map -->
         <script type="text/javascript">
 
+            // Constants
+            var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
+                SQL_API_TABLE = 'swmasterfinal';
+
+            // Initial values
             var initialDateMin = new Date(2012, 1, 2),
                 initialDateMax = new Date(2013, 1, 1);
 
@@ -36,7 +41,7 @@
 
             // Build the SQL for the layer that will be displayed
             function buildSQL() {
-                var baseQuery = "SELECT * FROM swmasterfinal";
+                var baseQuery = "SELECT * FROM " + SQL_API_TABLE;
                 var conditions = buildSQLWhereConditions(); 
                 return [baseQuery, conditions].join(' WHERE ');
             }
@@ -82,7 +87,7 @@
             // the rows to the given callback function
             function getDataNearPoint(latlng, callback) {
                 var nearbyDataSql = 
-                    "SELECT * FROM swmasterfinal " +
+                    "SELECT * FROM " + SQL_API_TABLE + " " +
                     "WHERE ST_DWithin( " +
                       "the_geom, " +
                       "ST_GeomFromText( " +
@@ -97,7 +102,7 @@
 
                 // Order by the filing date
                 sql += ' ORDER BY pre__filing_date';
-                $.getJSON('http://zingbot.cartodb.com/api/v2/sql?q=' + sql, function (data) {
+                $.getJSON(SQL_API_PREFIX + sql, function (data) {
                     callback(data.rows);
                 });
             }
@@ -105,10 +110,10 @@
             function getDataForBIN(bin, callback) {
                 var sql = 
                     'SELECT * ' +
-                    'FROM swmasterfinal ' +
+                    'FROM ' + SQL_API_TABLE + ' ' +
                     "WHERE bin__ = '" + bin + "'";
                 sql += ' AND ' + buildSQLWhereConditions() + ' ORDER BY pre__filing_date';
-                $.getJSON('http://zingbot.cartodb.com/api/v2/sql?q=' + sql, function (data) {
+                $.getJSON(SQL_API_PREFIX + sql, function (data) {
                     callback(data.rows);
                 });
             }
