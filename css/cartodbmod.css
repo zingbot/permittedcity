@@ -351,6 +351,7 @@ div.cartodb-zoom-info {
 }
 
 /* Slider central */
+/* The whole slider unit. Move around the page here */
 #slider {
 	height: 2px;
 	position:absolute;
@@ -360,11 +361,12 @@ div.cartodb-zoom-info {
 	z-index:2000;
 }
 
+/* unused? */
 .ui-rangeSlider {
 	height:10px;
-	
 }
 
+/* unused? */
 .ui-rangeSlider .ui-rangeSlider-innerBar {
 	height:25px;
 	margin:1px 0px;
@@ -373,11 +375,15 @@ div.cartodb-zoom-info {
 	background:#DDD;
 }
 
+
 .ui-rangeSlider .ui-rangeSlider-handle {
-	width:20px;
+	width:30px;
 	height:30px;
+	border-radius: 50%;
 	background:rgba(255,255,255,1);
 	cursor:col-resize;
+	border: #0000d4;
+	border-width: 2px;
 }
 
 /* selected range bar */
