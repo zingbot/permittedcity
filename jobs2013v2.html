@@ -209,7 +209,7 @@
                         max: initialDateMax
                     },
                     formatter: function (val) {
-                        return moment(val).format('MMMM YYYY');
+                        return moment(val).format('M / YY');
                     },
                     step: {
                         months: 1
@@ -273,10 +273,9 @@
                         </label>
                         <input checked="checked" id="expensiveness3" data-greater-than="5000000" type="checkbox" />
                         <br />
-                        <hr/>
                      </li>
                      <li>
-                        <img src="img/5milplus.png" alt="Sweeten Projects" height="26" width="26" />  
+                        <img src="img/sweeten.png" alt="Sweeten Projects" height="14" width="14" />  
                         <label for="sweeten"> Sweeten</label>
                      </li>
                 </ul>
@@ -309,19 +308,14 @@
                 <!-- Only has access to columns specified in getDataForBIN -->
                                  {{#rows}}
                                  
-               <div id='binlink'> <strong>Scroll</strong> to get all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
-            <hr/>
+               <div id='binlink'> List of all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
                     <div class="popup-content-section">
                         
                         <!-- Load the job page from the NYC DOB site -->
-                        <div id=  "job_number"><a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a></div><br />
+                        <div id=  "job_number"><a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{job__}}" target="blank"> Job No. {{job__}}</a></div><div id="date_display"> <h4>{{_display}}</h4></div>
 
                         <!-- Load the building information page form the NYC DOB site -->
                         <!-- Unformatted version of pre_filing_date -->
-                        <br/>
-
-                       <div id="date_display"> <h4>{{_display}}</h4></div>
-
                         <!-- Address, cost of project and fee -->
                         <h2>{{addressss}}</h2>
                          <h4>Reported work cost</h4>
@@ -337,7 +331,6 @@
                         <h3>{{applicant_s_first_last_name}}</h3></br>
                         <div id="profes_title"><h3>({{applicant_professional_title}})</h3></div></br>
                         <h4>Job detail</h4><h5>{{job_description}}</h5>
-                        <hr/>
                         
                     </div>
                    
