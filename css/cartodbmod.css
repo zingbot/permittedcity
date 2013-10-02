@@ -150,9 +150,15 @@ margin:0px 1px 0px 0px
 	background: transparent;
 	}
 	
- .binlink a{
-	font-size: 79px;
-	}
+ #binlink {
+	 background-color: #0000d4;
+	 padding: 2px 5px 5px 5px;
+	 color: #fff;
+	 margin:0px 0px 3px 0px
+ }
+ #binlink a{
+	 color: #fff;
+ }
 
 	h1, h2, h3, h4, h5, h6 {
 	display: inline-block;
@@ -205,6 +211,8 @@ h4 {
 
 #job_number a{
 	font-size: 1em;
+	color: #0000d4;
+	margin-bottom: 1px;
 }
 h5{
 	text-transform: uppercase;
