@@ -242,7 +242,7 @@
 
         <div id="legend">
             <!-- Information panel on left side --><h2>NEW YORK CITY</h2>
-            
+
             <hr/>
             <div id="filters">
                 <ul id="expensiveness">
@@ -293,12 +293,13 @@
                         <input id="mc-embedded-subscribe" name="subscribe" type="submit" value="Subscribe" />
                     </fieldset>
                 </form>
+                
             </div>
 
         </div>
 
         <div id="map"></div>
-        <div id="slider"></div>
+                    <div id="slider"></div>
 
         <script type="infowindow/html" id="infowindow_template">
          <div class="popup-content">
@@ -307,7 +308,7 @@
                 <!-- This iteratates over each row that was returned from the SQL query -->
                 <!-- Only has access to columns specified in getDataForBIN -->
                                  {{#rows}}
-                                 
+                                 <hr/>
                <div id='binlink'> List of all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
                     <div class="popup-content-section">
                         
@@ -326,13 +327,15 @@
 
                         <!-- Owner and applicant -->
                         <h4>Owner</h4></br>
-                        <h3>{{owner_s_first_last_name}}</h3></br>
+                       <div id="owner_name"> <h3>{{owner_s_first_last_name}}</h3></div></br>
                         <h4>Applicant</h4></br>
                         <h3>{{applicant_s_first_last_name}}</h3></br>
                         <div id="profes_title"><h3>({{applicant_professional_title}})</h3></div></br>
                         <h4>Job detail</h4><h5>{{job_description}}</h5>
                         
                     </div>
+                    </br>
+                    </br>
                    
                 {{/rows}}
             </div>
