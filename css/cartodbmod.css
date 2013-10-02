@@ -9,7 +9,6 @@ body{
 	margin-right: 0;
 	margin-bottom: 0;
 	margin-left: 0;
-
 }
 
 input.expensiveness2  {
@@ -47,7 +46,7 @@ hr {
 
 #legend  li {
 	font-size: 10px;
-	margin: 17px 0px 9px -30px;
+	margin: 10px 0px 2px -30px;
 	text-transform: uppercase;
 	list-style: none;
 	text-align: left;
@@ -62,9 +61,6 @@ margin:0px 1px 0px 0px
 	text-align: right;
 	
 }
-
-
-
 
 /* Time Buttons */
 #menu {
@@ -180,32 +176,40 @@ h2{
 }
 
 h4 { 
-	font-size:10px;
+	font-size:.75em;
 	color: #8F8F8F;
 	text-transform: uppercase; 
-	padding: 6px 0px 4px 0px
+	padding: 0px 0px 4px 0px
 }
 
 	
 #initial_cost h1{
-	font-size:26px;
+	font-size:2em;
+	padding: 0px 0px 12px 0px;
+	letter-spacing: -.03em;
+	line-height: 0em;
+}
+#profes_title h3{
+	font-size: .75em;
 }
 
-
 #date_display h4{
-	font-size: 30px;
-	padding: -70px 0px 0px 0px
+	font-size: 1em;
+	line-height: 1em;
+}
+
+#estimated_fee h2{
+	font-size: 1.5em;
+	padding:0em 0em .5em 0em;
 }
 
 #job_number a{
-	font-size: 20px;
-	padding:-50px;
+	font-size: 1em;
 }
 h5{
 	text-transform: uppercase;
 	padding-right: 1px;
 }
-
 
 #legend h5{
 text-transform: none

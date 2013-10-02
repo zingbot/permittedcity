@@ -171,7 +171,7 @@
                                 });
                                 
                                 //control popup width and height here
-                                L.popup({ maxHeight: 200, maxWidth:200 })
+                                L.popup({ maxHeight: 200, maxWidth:160 })
                                     .setLatLng(latlng)
                                     .setContent(content)
                                     .openOn(map);
@@ -250,8 +250,7 @@
                         <label for="expensiveness0">
                             <img src="img/350kbullet.png" alt="350k" height="14" width="14" />
                             up to $350K
-                        </label>
-                        <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox" />
+                        </label> <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox" />
                     </li>
                     <li>
                         <label for="expensiveness1">
@@ -327,20 +326,17 @@
                         <h2>{{addressss}}</h2>
                          <h4>Reported work cost</h4>
                          <div id="initial_cost"> <h1>${{initial_cost}}</h1></div>
-                      <div id="estimated_fee"  <h4>Total Estimated Fee</h4>
-                        <h2>${{total_est_fee}}</h2></div>
+                       <h4>Total Estimated Fee</h4>
+                        <div id="estimated_fee"> <h2>${{total_est_fee}}</h2></div>
                         <hr /> 
 
                         <!-- Owner and applicant -->
-                        <h4>Owner:</h4>
-                        <h3>{{owner_s_first_last_name}}</h3>
-                        <hr />
-                        <h4>Applicant</h4>
-                        <h3>{{applicant_s_first_last_name}}</h3>
-                        <h4>Title:</h4>
-                        <h3>{{applicant_professional_title}}</h3>
-                        <h4>Job detail</h4>
-                        <h5>{{job_description}}</h5>
+                        <h4>Owner</h4></br>
+                        <h3>{{owner_s_first_last_name}}</h3></br>
+                        <h4>Applicant</h4></br>
+                        <h3>{{applicant_s_first_last_name}}</h3></br>
+                        <div id="profes_title"><h3>({{applicant_professional_title}})</h3></div></br>
+                        <h4>Job detail</h4><h5>{{job_description}}</h5>
                         <hr/>
                         
                     </div>
