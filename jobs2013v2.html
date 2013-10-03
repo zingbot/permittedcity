@@ -84,6 +84,18 @@
                 }
             }
 
+            function updateSweetenLayerSQL(checked) {
+                if (sublayers[1] !== undefined) {
+                    //sublayers[1].setSQL(buildSQL());
+                    if (checked) {
+                        sublayers[1].setSQL('SELECT * FROM thesweeten_estimates_matrix');
+                    }
+                    else {
+                        sublayers[1].setSQL('SELECT * FROM thesweeten_estimates_matrix WHERE 0=1');
+                    }
+                }
+            }
+
             // Get all the rows very near to the given point, send back just 
             // the rows to the given callback function
             function getDataNearPoint(latlng, callback) {
@@ -269,6 +281,11 @@
                 // Update layer when expensiveness checkbox changes
                 $('#filters #expensiveness :input:not(#sweeten)').change(function () {
                     updatePermitLayerSQL();
+                });
+
+                // Update layer when expensiveness checkbox changes
+                $('#filters #expensiveness :input#sweeten').change(function () {
+                    updateSweetenLayerSQL($(this).is(':checked'));
                 });
 
             });
