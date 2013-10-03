@@ -267,7 +267,7 @@
                 });
 
                 // Update layer when expensiveness checkbox changes
-                $('#filters #expensiveness :input').change(function () {
+                $('#filters #expensiveness :input:not(#sweeten)').change(function () {
                     updateLayerSQL();
                 });
 
