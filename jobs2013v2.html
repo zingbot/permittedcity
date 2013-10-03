@@ -78,7 +78,7 @@
             }
 
             // Update the display layer's SQL
-            function updateLayerSQL() {
+            function updatePermitLayerSQL() {
                 if (sublayers[0] !== undefined) {
                     sublayers[0].setSQL(buildSQL());
                 }
@@ -263,12 +263,12 @@
                     dateMax = moment(data.values.max).add('months', 1).format('YYYY-MM-DD');
 
                     // Update the SQL of the layer
-                    updateLayerSQL();
+                    updatePermitLayerSQL();
                 });
 
                 // Update layer when expensiveness checkbox changes
                 $('#filters #expensiveness :input:not(#sweeten)').change(function () {
-                    updateLayerSQL();
+                    updatePermitLayerSQL();
                 });
 
             });
