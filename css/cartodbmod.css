@@ -73,6 +73,10 @@ hr {
     margin-left: 1px;
 }
 
+#sweeten-bullet img {
+    margin-left: 6px;
+}
+
 .expensiveness-text {
     display: inline-block;
     width: 80px;

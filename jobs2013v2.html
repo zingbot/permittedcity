@@ -54,7 +54,7 @@
 
                 // Get the initial cost conditions
                 var expensiveness_conditions = [];
-                $('#filters #expensiveness :input:checked').each(function (i, checkbox) {
+                $('#filters #expensiveness :input:checked:not(#sweeten)').each(function (i, checkbox) {
                     // Add a condition for each checked box
                     var lessthan = $(checkbox).data('less-than');
                     var greaterthan = $(checkbox).data('greater-than');
@@ -289,11 +289,17 @@
                             </span>
                         </label>
                         <input checked="checked" id="expensiveness3" data-greater-than="5000000" type="checkbox" />
-                        <br />
                      </li>
                      <li>
-                        <img src="img/sweeten.png" alt="Sweeten Projects" height="14" width="14" />  
-                        <label for="sweeten"> Sweeten</label>
+                        <label for="sweeten">
+                            <span id="sweeten-bullet" class="bullet-wrapper">
+                                <img src="img/sweeten.png" alt="Sweeten Projects" height="14" width="14" />  
+                            </span>
+                            <span class="expensiveness-text">
+                                Sweeten
+                            </span>
+                        </label>
+                        <input checked="checked" id="sweeten" type="checkbox" />
                      </li>
                 </ul>
 
