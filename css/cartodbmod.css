@@ -57,6 +57,10 @@ hr {
 #legend li img {
 }
 
+ul#expensiveness {
+    padding-left: 20px;
+}
+
 #expensiveness0 {
 	text-align: right;
 }
@@ -79,7 +83,7 @@ hr {
 
 .expensiveness-text {
     display: inline-block;
-    width: 80px;
+    width: 90px;
     position: relative;
     bottom: 4px;
 }
