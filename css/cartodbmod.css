@@ -41,6 +41,11 @@ hr {
 
 }
 
+#legend .bullet-wrapper {
+    display: inline-block;
+    width: 40px;
+}
+
 #legend  li {
 	font-size: .5em;
 	margin: 2px 0px 2px -2px;
@@ -48,15 +53,36 @@ hr {
 	list-style: none;
 	text-align: left;
 }
-#legend  li img{
-text-align:center;
-padding: 0px 11px 0px 0px;
-margin:0px 1px 0px 0px
+
+#legend li img {
 }
 
 #expensiveness0 {
 	text-align: right;
-	
+}
+
+#expensiveness0-bullet img {
+    margin-left: 5px;
+}
+
+#expensiveness1-bullet img {
+    margin-left: 3px;
+}
+
+#expensiveness2-bullet img {
+    margin-left: 1px;
+}
+
+.expensiveness-text {
+    display: inline-block;
+    width: 80px;
+    position: relative;
+    bottom: 4px;
+}
+
+#expensiveness input {
+    position: relative;
+    bottom: 3px;
 }
 
 /* Time Buttons */

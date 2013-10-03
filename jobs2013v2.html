@@ -248,28 +248,45 @@
                 <ul id="expensiveness">
                     <li>
                         <label for="expensiveness0">
-                            <img src="img/350kbullet.png" alt="350k" height="14" width="14" />
-                            up to $350K
-                        </label> <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox" />
+                            <span id="expensiveness0-bullet" class="bullet-wrapper">
+                                <img src="img/350kbullet.png" alt="350k" height="14" width="14" />
+                            </span>
+                            <span class="expensiveness-text">
+                                up to $350K
+                            </span>
+                        </label> 
+                        <input checked="checked" id="expensiveness0" data-less-than="350000" type="checkbox" />
                     </li>
                     <li>
                         <label for="expensiveness1">
-                            <img src="img/350to1bullet.png" alt="350kto1m" height="17" width="17" />
-                            $350K to $1M
+                            <span id="expensiveness1-bullet" class="bullet-wrapper">
+                                <img src="img/350to1bullet.png" alt="350kto1m" height="17" width="17" />
+                            </span>
+                            <span class="expensiveness-text">
+                                $350K to $1M
+                            </span>
                         </label>
                         <input checked="checked" id="expensiveness1" data-less-than="1000000" data-greater-than="350000" type="checkbox" />
                     </li>
                     <li>
                         <label for="expensiveness2">
-                            <img src="img/1to5bullet.png" alt="1mto5m" height="22" width="23" />
-                            $1m to $5m
+                            <span id="expensiveness2-bullet" class="bullet-wrapper">
+                                <img src="img/1to5bullet.png" alt="1mto5m" height="22" width="23" />
+                            </span>
+                            <span class="expensiveness-text">
+                                $1m to $5m
+                            </span>
                         </label>
                         <input checked="checked" id="expensiveness2" data-less-than="5000000" data-greater-than="1000000" type="checkbox" />
                     </li>
                     <li>
                         <label for="expensiveness3">
-                            <img src="img/5milplus.png" alt="5milplus" height="26" width="26" />
-                            over $5M
+                            <span class="bullet-wrapper">
+                                <img src="img/5milplus.png" alt="5milplus" height="25" width="26" />
+                            </span>
+                            <span class="expensiveness-text">
+                                over $5M
+                            </span>
                         </label>
                         <input checked="checked" id="expensiveness3" data-greater-than="5000000" type="checkbox" />
                         <br />
