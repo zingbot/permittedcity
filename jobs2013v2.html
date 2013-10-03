@@ -37,7 +37,8 @@
             // Global state variables
             var dateMin = moment(initialDateMin).format('YYYY-MM-DD'),
                 dateMax = moment(initialDateMax).format('YYYY-MM-DD'),
-                sublayers = [];
+                sublayers = [],
+                map;
 
             // Build the SQL for the layer that will be displayed
             function buildSQL() {
@@ -131,9 +132,74 @@
                 });
             }
 
+            // Initialize the sublayer that holds permit points
+            function initializePermitSublayer(sublayer) {
+                var subLayerOptions = {
+                    sql: buildSQL() 
+                };
+                sublayer.set(subLayerOptions);
+                sublayer.setInteraction(true);
+                sublayer.setInteractivity(['cartodb_id', 'latitude', 'longitude', 'bin__']);
+
+                sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
+                    getDataForBIN(data['bin__'], function (data) {
+                        var content = Mustache.render($('#infowindow_template').html(), {
+                            rows: data,
+                        });
+                        
+                        //control popup width and height here
+                        L.popup({ maxHeight: 200, maxWidth:160 })
+                            .setLatLng(latlng)
+                            .setContent(content)
+                            .openOn(map);
+                    });
+                });
+
+                // Turning infowindow off makes the cursor no longer 
+                // become a pointer when the mouse is over a feature.
+                // Fix that here.
+                sublayer.on('featureOver', function (e, latlng, pos, data, layer) {
+                    $('#map').css('cursor', 'pointer');
+                });
+
+                sublayer.on('featureOut', function (e, latlng, pos, data, layer) {
+                    $('#map').css('cursor', '-moz-grab');
+                    $('#map').css('cursor', '-webkit-grab');
+                });
+            }
+
+            function initializeSweetenSublayer(sublayer) {
+                sublayer.set({ sql: 'SELECT * FROM thesweeten_estimates_matrix' });
+                sublayer.setInteraction(true);
+                // Add other columns you want in the popup here
+                sublayer.setInteractivity(['cartodb_id', 'address']);
+
+                sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
+                    var content = Mustache.render($('#sweeten_infowindow_template').html(), data);
+
+                    //control popup width and height here
+                    L.popup({ maxHeight: 200, maxWidth:160 })
+                        .setLatLng(latlng)
+                        .setContent(content)
+                        .openOn(map);
+                });
+
+                // Turning infowindow off makes the cursor no longer 
+                // become a pointer when the mouse is over a feature.
+                // Fix that here.
+                sublayer.on('featureOver', function (e, latlng, pos, data, layer) {
+                    $('#map').css('cursor', 'pointer');
+                });
+
+                sublayer.on('featureOut', function (e, latlng, pos, data, layer) {
+                    $('#map').css('cursor', '-moz-grab');
+                    $('#map').css('cursor', '-webkit-grab');
+                });
+           }
+
             $(document).ready(function () {
 
-                var map = L.map('map', { 
+                map = L.map('map', { 
                     zoomControl: true,
                     center: [40.7142, -74.0064],
                     zoom: 14,
@@ -154,43 +220,14 @@
                 cartodb.createLayer(map, layerURL, { infowindow: false })
                    .addTo(map)
                    .on('done', function(layer) {
-                        // Gets viz layers. 0 is layer 1, 1 is layer 2
-                        var sublayer = layer.getSubLayer(1); 
+                        // Initialize sublayers
+                        var permitSublayer = layer.getSubLayer(1); 
+                        initializePermitSublayer(permitSublayer);
+                        sublayers.push(permitSublayer);
 
-                        var subLayerOptions = {
-                            sql: buildSQL() 
-                        };
-                        sublayer.set(subLayerOptions);
-                        sublayer.setInteraction(true);
-                        sublayer.setInteractivity(['cartodb_id', 'latitude', 'longitude', 'bin__']);
-
-                        sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
-                            getDataForBIN(data['bin__'], function (data) {
-                                var content = Mustache.render($('#infowindow_template').html(), {
-                                    rows: data,
-                                });
-                                
-                                //control popup width and height here
-                                L.popup({ maxHeight: 200, maxWidth:160 })
-                                    .setLatLng(latlng)
-                                    .setContent(content)
-                                    .openOn(map);
-                            });
-                        });
-
-                        // Turning infowindow off makes the cursor no longer 
-                        // become a pointer when the mouse is over a feature.
-                        // Fix that here.
-                        sublayer.on('featureOver', function (e, latlng, pos, data, layer) {
-                            $('#map').css('cursor', 'pointer');
-                        });
-
-                        sublayer.on('featureOut', function (e, latlng, pos, data, layer) {
-                            $('#map').css('cursor', '-moz-grab');
-                            $('#map').css('cursor', '-webkit-grab');
-                        });
-
-                        sublayers.push(sublayer);
+                        var sweetenSublayer = layer.getSubLayer(0); 
+                        initializeSweetenSublayer(sweetenSublayer);
+                        sublayers.push(sweetenSublayer);
                     })
                     .on('error', function() {
                         console.log("some error occurred");
@@ -325,12 +362,10 @@
                     <div id="slider"></div>
 
         <script type="infowindow/html" id="infowindow_template">
-         <div class="popup-content">
-                          
-                          
-                <!-- This iteratates over each row that was returned from the SQL query -->
-                <!-- Only has access to columns specified in getDataForBIN -->
-                                 {{#rows}}
+            <div class="popup-content">
+               <!-- This iteratates over each row that was returned from the SQL query -->
+               <!-- Only has access to columns specified in getDataForBIN -->
+               {{#rows}}
                                  <hr/>
                <div id='binlink'> List of all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
                     <div class="popup-content-section">
@@ -361,6 +396,14 @@
                     </br>
                    
                 {{/rows}}
+            </div>
+        </script> 
+
+        <script type="infowindow/html" id="sweeten_infowindow_template">
+            <!-- You will only have access to the columns set in initializeSweetenSublayer -->
+            <div class="popup-content">
+                <div>Sweeten popup</div>
+                {{address}}
             </div>
         </script> 
 
