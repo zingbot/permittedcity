@@ -219,7 +219,7 @@
     $( "#msg" ).text( $( "button", this ).text() + " has completed." );
   });});
 */
-  $( "#legend" ).click(function() {
+  $( "#legendTop" ).click(function() {
   if ( $( "#filters" ).is( ":hidden" ) ) {
     $( "#filters" ).show( "slow" );
   } else {
@@ -313,7 +313,7 @@
 
         <div id="legend">
             <!-- Information panel on left side -->
-            <h2>NEW YORK CITY</h2>
+            <div id="legendTop"><h2>NEW YORK CITY</h2></div>
             
             <hr/>
             <div id="filters">
@@ -411,7 +411,7 @@
                         <!-- Load the building information page form the NYC DOB site -->
                         <!-- Unformatted version of pre_filing_date -->
                         <!-- Address, cost of project and fee -->
-                        <h2>{{addressss}}</h2>
+                       <div id="address"> <h2>{{addressss}}</h2></div>
                          <h4>Reported work cost</h4>
                          <div id="initial_cost"> <h1>${{initial_cost}}</h1></div>
                        <h4>Total Estimated Fee</h4>
