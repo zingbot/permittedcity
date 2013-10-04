@@ -213,6 +213,19 @@
            }
 
             $(document).ready(function () {
+/*
+ $( "button" ).click(function() {
+  $( this ).parent().slideUp( "slow", function() {
+    $( "#msg" ).text( $( "button", this ).text() + " has completed." );
+  });});
+*/
+  $( "button" ).click(function() {
+  if ( $( "#filters" ).is( ":hidden" ) ) {
+    $( "#filters" ).show( "slow" );
+  } else {
+    $( "#filters" ).slideUp();
+  }
+});
 
                 map = L.map('map', { 
                     zoomControl: true,
@@ -293,18 +306,13 @@
 
             });
             
-            $( "#legend" ).click(function() {
-  $( this ). parent .slideUp( "slow", function() {
-    // Animation complete.
-  });
-});
-        </script>
+                   </script>
 
     </head>
     <body>
 
         <div id="legend">
-        <div id="clickme"> Retract legend</div>
+        <div id="clickme"> <button>Retract legend</button></div>
             <!-- Information panel on left side -->
             <h2>NEW YORK CITY</h2>
             
@@ -368,7 +376,7 @@
                      </li>
                 </ul>
 
-            </div>
+            
             <div id="sweetenpanel">
                 <hr/>
                 <h5>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h5>
@@ -383,7 +391,7 @@
                 </form>
                 
             </div>
-
+</div>
         </div>
 
         <div id="map"></div>
