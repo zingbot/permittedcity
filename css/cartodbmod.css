@@ -33,13 +33,21 @@ hr {
 	box-shadow:0 px 10px rgba(0,0,0,0.65);
 	position:absolute;
 	z-index:2000;
-	bottom: 35px;
+	top: 35px;
 	left:50px;
-	padding:15px;
-	width:200px;
+	padding:8px;
+	width:40%;
 	height: auto;
 
 }
+
+#legend .button{
+	
+}
+
+#legend h5{
+text-transform: none
+	}
 
 #legend .bullet-wrapper {
     display: inline-block;
@@ -267,9 +275,6 @@ h5{
 	padding-right: 1px;
 	}
 
-#legend h5{
-text-transform: none
-	}
 
 .leaflet-container a.leaflet-popup-close-button:hover {
 	color: #999;
