@@ -30,20 +30,16 @@ hr {
 
 #legend {
 	background:#fff;
-	box-shadow:0 px 10px rgba(0,0,0,0.65);
 	position:absolute;
 	z-index:2000;
-	top: 35px;
+	bottom:0px;
 	left:50px;
 	padding:8px;
-	width:40%;
-	height: auto;
-
+	width:200px;
+	height:auto;
 }
 
-#legend .button{
-	
-}
+
 
 #legend h5{
 text-transform: none
@@ -65,6 +61,9 @@ text-transform: none
 #legend li img {
 }
 
+#sweetenpanel h5{
+	font-size: .6em;
+}
 ul#expensiveness {
     padding-left: 20px;
 }
@@ -226,7 +225,8 @@ h1{
 	-webkit-margin-end: 0px;
 	}
 
-h2{
+#address h2	{
+font-size: 16px;
 	padding: 8px 0px 4px 0px
 	}
 
