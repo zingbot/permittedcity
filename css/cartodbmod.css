@@ -200,9 +200,12 @@ ul#expensiveness {
 }
 
 #clickme {
-	width:100px;
-	height: 1em;
-	background-color: fff;
+	width:auto;
+	height: 2em;
+	color: #fff;
+	text-align: center;
+	padding: 20px 2px 2px 2px;
+	background-color: #000;
 	z-index:2000;
 	
 	}
