@@ -206,7 +206,7 @@ ul#expensiveness {
 	text-align: center;
 	padding: 20px 2px 2px 2px;
 	background-color: #000;
-	z-index:2000;
+	z-index:2001;
 	
 	}
 h1{
@@ -477,15 +477,7 @@ div.cartodb-zoom-info {
 	background-repeat:no-repeat;
 }
 
-.ui-rangeSlider-arrow.ui-rangeSlider-leftArrow {
-	background-image:url(icons-classic/resultset_previous.png);
-	background-position:center left;
-}
 
-.ui-rangeSlider-arrow.ui-rangeSlider-rightArrow {
-	background-image:url(icons-classic/resultset_next.png);
-	background-position:center right;
-}
 
 .ui-rangeSlider-arrow-inner {
 	display:none;
