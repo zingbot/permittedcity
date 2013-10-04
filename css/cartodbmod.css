@@ -182,7 +182,7 @@ ul#expensiveness {
 	}
 	
  #binlink {
-	 background-color: #0000d4;
+	 background-color: #828282;
 	 padding: 2px 5px 5px 5px;
 	 color: #fff;
 	 margin:0px 0px 3px 0px
@@ -199,6 +199,13 @@ ul#expensiveness {
 	-webkit-margin-end: 0px;
 }
 
+#clickme {
+	width:100px;
+	height: 1em;
+	background-color: fff;
+	z-index:2000;
+	
+	}
 h1{
 	font-size: 1.5em;
 	font-weight: 700;
@@ -206,87 +213,96 @@ h1{
 	-webkit-margin-after: 0em;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
-}
+	}
 
 h2{
 	padding: 8px 0px 4px 0px
-}
+	}
 
 h4 { 
 	font-size:.75em;
 	color: #8F8F8F;
 	text-transform: uppercase; 
 	padding: 0px 0px 4px 0px
-}
+	}
 
 	
 #initial_cost h1{
-	font-size:2em;
-	padding: 0px 0px 12px 0px;
+   	font-family: "letter-gothic-std",sans-serif;
+	font-size:1.25em;
+	padding: 0px 0px .75em 0px;
 	letter-spacing: -.03em;
 	line-height: 0em;
-}
+	}
 #profes_title h3{
 	font-size: .75em;
-}
+	}
 
 #date_display h4{
 	font-size: 1em;
 	line-height: 1em;
-}
+	}
 
 #estimated_fee h2{
-	font-size: 1.5em;
-	padding:0em 0em .5em 0em;
-}
+   	font-family: "letter-gothic-std",sans-serif;
+	font-size: 1.25em;
+	padding:0em 0em .75em 0em;
+	}
 
 #job_number a{
 	font-size: 1em;
 	color: #0000d4;
 	margin-bottom: 1px;
-}
+	}
 
 #owner_name h3{
 	padding: 1px 0px 0px 0px;
-}
+	}
+
 h5{
 	text-transform: uppercase;
 	padding-right: 1px;
-}
+	}
 
 #legend h5{
 text-transform: none
-}
+	}
+
 .leaflet-container a.leaflet-popup-close-button:hover {
 	color: #999;
 	}
 	
 .leaflet-popup-scrolled {
 	overflow-x:hidden;
-
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
+	border:0;
 	}
-
 
 /* Popup content */
 div.filters {
 	background-color:#f0f;
-}
+	}
+
+.leaflet-popup-content-wrapper {
+	padding: 1px .5px 1px .5px;
+	text-align: left;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
+	}
+	
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+	background: white;
+	box-shadow: 0 3px 14px rgba(0,0,0,0);
+	}
 
 div.popup-content-section{
 	padding:0;
-	
-}
-
-
-.leaflet-popup-scrolled {
-	border:0;
-}
+	}
 
 popup-content strong{
 	text-align: center;
-}
+	}
 
 /* Zoom changes */
 div.cartodb-zoom {
@@ -416,7 +432,7 @@ div.cartodb-zoom-info {
 	border: #0000d4;
 	border-width: 5px;
 	background:#fff;
-	border: 1px solid #0000d4;
+	border: 1px solid #828282;
 
 	}
 
@@ -437,8 +453,8 @@ div.cartodb-zoom-info {
 
 /* selected range bar */
 .ui-rangeSlider .ui-rangeSlider-bar {
-	height:9px;
-	margin:7px 4px 7px 12px;
+	height:4px;
+	margin:10px 4px 7px 12px;
 	background: #0000d4;
 	cursor:move;
 	cursor:hand;
@@ -491,7 +507,7 @@ text-align: center;
 	font-weight: 700;
 	width: 4em;
 	margin: 0px 0px 9px 0px;
-	background-color: #0000d4;
+	background-color: #5a5a5a;
 	color: #fff;
 	bottom:-5px;
 	padding:0px;
