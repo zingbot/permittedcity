@@ -32,6 +32,7 @@
             // Constants
             var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
                 SQL_API_TABLE = 'swmasterfinal';
+				SQL_API_TABLE_SW= 'swprojects';
 
             // Initial values
             var initialDateMin = new Date(2012, 1, 2),
@@ -91,10 +92,10 @@
                 if (sublayers[1] !== undefined) {
                     //sublayers[1].setSQL(buildSQL());
                     if (checked) {
-                        sublayers[1].setSQL('SELECT * FROM thesweeten_estimates_matrix');
+                        sublayers[1].setSQL('SELECT * FROM swprojects');
                     }
                     else {
-                        sublayers[1].setSQL('SELECT * FROM thesweeten_estimates_matrix WHERE 0=1');
+                        sublayers[1].setSQL('SELECT * FROM swprojects WHERE 0=1');
                     }
                 }
             }
@@ -184,10 +185,10 @@
             }
 
             function initializeSweetenSublayer(sublayer) {
-                sublayer.set({ sql: 'SELECT * FROM thesweeten_estimates_matrix' });
+                sublayer.set({ sql: 'SELECT * FROM swprojects' });
                 sublayer.setInteraction(true);
                 // Add other columns you want in the popup here
-                sublayer.setInteractivity(['cartodb_id', 'address']);
+                sublayer.setInteractivity(['cartodb_id', 'lat', 'lng', 'description', 'homeowner', 'title', 'url', 'id']);
 
                 sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
                     var content = Mustache.render($('#sweeten_infowindow_template').html(), data);
@@ -313,7 +314,7 @@
 
         <div id="legend">
             <!-- Information panel on left side -->
-            <div id="legendTop"><h2>NEW YORK CITY</h2></div>
+            <div id="legendTop"><h2>NEW YORK CITY</h2><img src='http://sweeten.com/assets/select-box-arrow.png'></div>
             
             <hr/>
             <div id="filters">
@@ -437,8 +438,10 @@
         <script type="infowindow/html" id="sweeten_infowindow_template">
             <!-- You will only have access to the columns set in initializeSweetenSublayer -->
             <div class="popup-content">
-                <div>Sweeten popup</div>
-                {{address}}
+                <div id="sw_pop_title">{{title}}</div>
+                <div>{{description}}</div>
+                <div id=  "job_number"><a href="http://sweeten.com/projects/{{id}}" target="blank"> See job: {{id}}</a></div>
+                
             </div>
         </script> 
 
