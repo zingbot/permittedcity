@@ -439,10 +439,10 @@ div.cartodb-zoom-info {
 #slider {
 	height: 2px;
 	position:absolute;
-	bottom:50px;
+	bottom:70px;
 	left: 10px;
 	right: 10px;
-	width:90%;
+	width:100%;
 	z-index:2000;
 }
 
