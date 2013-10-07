@@ -394,6 +394,7 @@
 </div>
         </div>
 
+
         <div id="map"></div>
                     <div id="slider"></div>
 
@@ -437,10 +438,11 @@
 
         <script type="infowindow/html" id="sweeten_infowindow_template">
             <!-- You will only have access to the columns set in initializeSweetenSublayer -->
+            <div id="sw_popup_brand"><h2>SWEETEN</h2></div><hr/>
             <div class="popup-content">
                 <div id="sw_pop_title">{{title}}</div>
-                <div>{{description}}</div>
-                <div id=  "job_number"><a href="http://sweeten.com/projects/{{id}}" target="blank"> See job: {{id}}</a></div>
+                <div id="sw_pop_desc">{{description}}</div>
+                <div id=  "sw_popup_jobid"><a href="http://sweeten.com/projects/{{id}}" target="blank">Visit job: {{id}}</a></div>
                 
             </div>
         </script> 

@@ -283,17 +283,31 @@ h4 {
 #owner_name h3{
 	padding: 1px 0px 0px 0px;
 	}
+	
 #sw_pop_title{
 	font-weight: 700;
-	font-size: 1.15em;
+	font-size: 1.5em;
+	padding:10px 2px 10px 0px;
+
+}
+
+#sw_popup_jobid{
+	padding:10px 2px 10px 0px;
+
 }
 
 #sw_popup_brand {
+	font-size: 1em;
+	letter-spacing: 0.16667em;
+	text-align: center;
+	padding:10px 2px 10px 4px;
+
+}
+#sw_pop_desc{
 	
 }
 
-#sw
-h5{
+#sw h5{
 	text-transform: uppercase;
 	padding-right: 1px;
 	}
