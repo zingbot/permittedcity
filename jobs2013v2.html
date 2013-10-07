@@ -214,17 +214,19 @@
            }
 
             $(document).ready(function () {
-/*
- $( "button" ).click(function() {
-  $( this ).parent().slideUp( "slow", function() {
-    $( "#msg" ).text( $( "button", this ).text() + " has completed." );
-  });});
-*/
+
   $( "#legendTop" ).click(function() {
   if ( $( "#filters" ).is( ":hidden" ) ) {
     $( "#filters" ).show( "slow" );
   } else {
     $( "#filters" ).slideUp();
+  }
+});
+  $( "#sweetenpanelsm_title" ).click(function() {
+  if ( $( "#sweetenpanelsm_content" ).is( ":hidden" ) ) {
+    $( "#sweetenpanelsm_content" ).show( "slow" );
+  } else {
+    $( "#sweetenpanelsm_content" ).slideUp();
   }
 });
 
@@ -316,7 +318,7 @@
             <!-- Information panel on left side -->
             <div id="legendTop"><h2>NEW YORK CITY</h2><img src='http://sweeten.com/assets/select-box-arrow.png'></div>
             
-            <hr/>
+            
             <div id="filters">
                 <ul id="expensiveness">
                     <li>
@@ -377,22 +379,23 @@
                 </ul>
 
             
-            <div id="sweetenpanel">
-                <hr/>
-                <h5>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h5>
-                <hr/>
+            
             </div>
-            <div>             
-                <form action="http://swee10.us1.list-manage.com/subscribe/post?u=468d331ad04964faf7472cc8b&amp;amp;id=8288740962" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" target="_blank">
+        </div>
+
+ <div id="sweetenpanelsm">
+ <div id="sweetenpanelsm_title">SWEETEN<img src='http://sweeten.com/assets/select-box-arrow.png'></div>
+                
+               <div id="sweetenpanelsm_content"> <h5>Sweeten produces a regular newsletter that tracks renovation trends in New York City – based on research that uses case studies, proprietary data, and publicly available information  – to understand the overall market. </h5>
+                    
+                <div id="sw_form"><form action="http://swee10.us1.list-manage.com/subscribe/post?u=468d331ad04964faf7472cc8b&amp;amp;id=8288740962" id="mc-embedded-subscribe-form" method="post" name="mc-embedded-subscribe-form" target="_blank">
                     <fieldset>
                         <input class="required email" id="mce-EMAIL" name="EMAIL" title="your.email@example.com" type="text" value="" />
                         <input id="mc-embedded-subscribe" name="subscribe" type="submit" value="Subscribe" />
                     </fieldset>
-                </form>
-                
+                </form></div>
+               </div>
             </div>
-</div>
-        </div>
 
 
         <div id="map"></div>
