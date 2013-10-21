@@ -551,15 +551,17 @@ left: 300px;
 
 .ui-rangeSlider-arrow {
 	height:10px;
-	margin:2px 0;
-	width:10px;
+	background-color: none;
+	opacity: 1;
+	margin:20px 50;
+	width:20px;
 	background-repeat:no-repeat;
 }
 
-
-
 .ui-rangeSlider-arrow-inner {
-	display:none;
+	display:block;
+	background: #0000d4;
+	height: 18px;
 }
 
 .ui-rangeSlider-container {
