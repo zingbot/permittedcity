@@ -505,11 +505,6 @@ div.cartodb-zoom-info {
 
 }
 
-#slider {
-		text-align: center;
-
-}
-
 /* unused? */
 .ui-rangeSlider {
 	height:10px;
@@ -531,17 +526,47 @@ div.cartodb-zoom-info {
 
 /* slider handles, used to change the range of time */
 .ui-rangeSlider .ui-rangeSlider-handle {
-	width:20px;
-	height:20px;
-	margin:auto 0px;
+	width:30px;
+	height:30px;
+	margin:-5px 0px 0px 0px;
 	-webkit-box-shadow: 0px 2px 2px 0px #999;
 	-moz-box-shadow: 0px 2px 2px 0px #999;
-	box-shadow: 0px 2px 2px 0px #999;
+	box-shadow: 0px 2px 4px 0px #999;
 	border-radius: 50%;
-	background: #dcdcdc;
+	background: #fff;
 	cursor:pointer;
-	border: 4px solid #5a5a5a;
+	border: 0px solid #5a5a5a;
 	}
+
+/* month labels */	
+.ui-rangeSlider-label {
+	text-align: center;
+	font-size:.75em;
+	-webkit-appearance: none;
+	background-image: none;
+	font-weight: 700;
+	width: 4em;
+	border-radius: .5em;
+	margin: 0px 0px -13px 0px;
+	background-color: #5a5a5a;
+	color: #fff;
+	bottom:-5px;
+	padding:2px;
+	cursor:hand;
+}
+
+.ui-rangeSlider-label-inner {
+-webkit-appearance: none;
+	background-image: none;
+	font-size: 9em;
+	display:none;
+}
+
+input.ui-editRangeSlider-inputValue {
+	width:5em;
+	vertical-align:left;
+	text-align:center;
+}
 
 /* selected range bar */
 .ui-rangeSlider .ui-rangeSlider-bar {
@@ -553,29 +578,29 @@ div.cartodb-zoom-info {
 	cursor:-moz-grab;
 }
 
+.ui-rangeSlider-bar {
+text-align:center;
+background-color:aqua;
+}
 
 .ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging {
 	cursor:-moz-grabbing;
 	background-color: #0000d4;
 	cursor:hand;
-	
 }
 
-.ui-rangeSlider-bar h4{
-
-}
 .ui-rangeSlider-arrow {
-	height:10px;
-	background-color: none;
+	height:18px;
+	background-color: #0000d4;
 	opacity: 1;
 	margin:20px 50;
 	width:20px;
 	background-repeat:no-repeat;
+	text-align: center;
 }
 
 .ui-rangeSlider-arrow.ui-rangeSlider-leftArrow{
-	background-position:center left;
-	background-image:url(icons-classic/resultset_previous.png);
+	text-align: center;
 }
 
 .ui-rangeSlider-arrow.ui-rangeSlider-rightArrow {
@@ -599,31 +624,4 @@ div.cartodb-zoom-info {
 	margin:0;
 }
 
-.ui-rangeSlider-label {
-	text-align: center;
-	font-size:.75em;
-	-webkit-appearance: none;
-	background-image: none;
-	font-weight: 700;
-	width: 4em;
-	border-radius: .5em;
-	margin: 0px 0px -36px 0px;
-	background-color: #5a5a5a;
-	color: #fff;
-	bottom:-5px;
-	padding:2px;
-	cursor:hand;
-}
 
-.ui-rangeSlider-label-inner {
--webkit-appearance: none;
-	background-image: none;
-	font-size: 9em;
-	display:none;
-}
-
-input.ui-editRangeSlider-inputValue {
-	width:5em;
-	vertical-align:left
-	text-align:center;
-}
