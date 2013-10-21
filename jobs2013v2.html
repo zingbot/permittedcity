@@ -408,10 +408,11 @@
         <script type="infowindow/html" id="infowindow_template">
             <div class="popup-content">
                <!-- This iteratates over each row that was returned from the SQL query -->
-               <!-- Only has access to columns specified in getDataForBIN -->
+               <!-- Only has access to columns specified in getDataForBIN -->               <div id='bintotal'><h4>Listing XX jobs</h4></div> 
+
                {{#rows}}
-                                 <hr/>
-               <div id='binlink'> List of all jobs in<br/> <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No.{{bin__}}  </a></div>
+                                
+               <div id='binlink'>  <a  href="http://a810-bisweb.nyc.gov/bisweb/PropertyProfileOverviewServlet?bin={{bin__}}" target="blank" >Building No. {{bin__}}  </a></div>
                     <div class="popup-content-section">
                         
                         <!-- Load the job page from the NYC DOB site -->
