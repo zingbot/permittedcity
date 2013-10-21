@@ -275,21 +275,21 @@ h1{
 
 #address h2	{
 font-size: 16px;
-	padding: 8px 0px 4px 0px
+	padding: 2px 0px 4px 0px
 	}
 
 h4 { 
 	font-size:.75em;
 	color: #8F8F8F;
 	text-transform: uppercase; 
-	padding: 0px 0px 4px 0px
+	padding: 0px 0px 2px 0px
 	}
 
 	
 #initial_cost h1{
    	font-family: "letter-gothic-std",sans-serif;
 	font-size:1.25em;
-	padding: 0px 0px .75em 0px;
+	padding: 0px 0px .5em 0px;
 	letter-spacing: -.03em;
 	line-height: 0em;
 	}
@@ -463,6 +463,10 @@ div.cartodb-zoom a.disabled:hover {
 	color:#999;
 }
 
+.cartodb-logo {
+	display:none;
+}
+
 /* CartoDB zoom info control */
 div.cartodb-zoom-info {
 	position:absolute;
@@ -494,10 +498,16 @@ div.cartodb-zoom-info {
 #slider {
 	height: 2px;
 	position:absolute;
-	bottom:70px;
+	bottom:90px;
 	left: 20px;
 	right: 20px;
 	z-index:2000;
+
+}
+
+#slider {
+		text-align: center;
+
 }
 
 /* unused? */
@@ -516,6 +526,7 @@ div.cartodb-zoom-info {
 	width: 60%;
 	right:20px;
 left: 300px;
+
 	}
 
 /* slider handles, used to change the range of time */
@@ -530,6 +541,7 @@ left: 300px;
 	background: #dcdcdc;
 	cursor:pointer;
 	border: 4px solid #fff;
+	
 
 	}
 
@@ -543,12 +555,17 @@ left: 300px;
 	cursor:-moz-grab;
 }
 
+
 .ui-rangeSlider .ui-rangeSlider-bar.ui-draggable-dragging {
 	cursor:-moz-grabbing;
 	background-color: #0000d4;
 	cursor:hand;
+	
 }
 
+.ui-rangeSlider-bar h4{
+
+}
 .ui-rangeSlider-arrow {
 	height:10px;
 	background-color: none;
@@ -558,10 +575,18 @@ left: 300px;
 	background-repeat:no-repeat;
 }
 
+.ui-rangeSlider-arrow.ui-rangeSlider-leftArrow{
+	background-position:center left;
+	background-image:url(icons-classic/resultset_previous.png);
+}
+
+.ui-rangeSlider-arrow.ui-rangeSlider-rightArrow {
+	background-position:center right;
+	background-image:url(icons-classic/resultset_next.png);
+}
+
 .ui-rangeSlider-arrow-inner {
 	display:block;
-	background: #0000d4;
-	height: 18px;
 }
 
 .ui-rangeSlider-container {
