@@ -28,11 +28,11 @@
         <script type="text/javascript">
             // Constants
             var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
-                SQL_API_TABLE = 'swmasterfinal';
+                SQL_API_TABLE = 'swmasterfinalall';
                 SQL_API_TABLE_SW= 'swprojects';
 
             // Initial values
-            var initialDateMin = new Date(2012, 1, 2),
+            var initialDateMin = new Date(2003, 1, 2),
                 initialDateMax = new Date(2013, 1, 1);
 
             // Global state variables
@@ -251,7 +251,7 @@
                     arrows: true,
                     bounds: {
                         // 0-based months
-                        min: new Date(2012, 0, 1),
+                        min: new Date(2003, 0, 1),
                         max: new Date(2013, 8, 1)
                     },
                     defaultValues: {
