@@ -9,15 +9,19 @@
 
         <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.css" type="text/css" />
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" type="text/css" />
+        <link rel="stylesheet" href="js/Leaflet.markercluster/MarkerCluster.css" />
+        <link rel="stylesheet" href="js/Leaflet.markercluster/MarkerCluster.Default.css" />
         <!--[if lte IE 8]>
             <link rel="stylesheet" href="http://libs.cartodb.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
             <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.ie.css" />
+            <link rel="stylesheet" href="js/Leaflet.markercluster/MarkerCluster.Default.ie.css" />
         <![endif]-->
         <link rel="stylesheet" href="js/jQRangeSlider/css/classic-min.css" type="text/css" />
         <link rel="stylesheet" href="css/cartodbmod.css" type="text/css" />
         <link rel="stylesheet" href="css/custom.css">
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://libs.cartodb.com/cartodb.js/v3/cartodb.js" type="text/javascript"></script>
+        <script src="js/Leaflet.markercluster/leaflet.markercluster.js" type="text/javascript"></script>
 
         <!-- Required scripts for date slider -->
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -39,7 +43,8 @@
             var dateMin = moment(initialDateMin).format('YYYY-MM-DD'),
                 dateMax = moment(initialDateMax).format('YYYY-MM-DD'),
                 sublayers = [],
-                map;
+                map,
+                sweetenLayer;
 
             // Build the SQL for the layer that will be displayed
             function buildSQL() {
@@ -82,18 +87,6 @@
             function updatePermitLayerSQL() {
                 if (sublayers[0] !== undefined) {
                     sublayers[0].setSQL(buildSQL());
-                }
-            }
-
-            function updateSweetenLayerSQL(checked) {
-                if (sublayers[1] !== undefined) {
-                    //sublayers[1].setSQL(buildSQL());
-                    if (checked) {
-                        sublayers[1].setSQL('SELECT * FROM swprojects');
-                    }
-                    else {
-                        sublayers[1].setSQL('SELECT * FROM swprojects WHERE 0=1');
-                    }
                 }
             }
 
@@ -181,35 +174,6 @@
                 });
             }
 
-            function initializeSweetenSublayer(sublayer) {
-                sublayer.set({ sql: 'SELECT * FROM swprojects' });
-                sublayer.setInteraction(true);
-                // Add other columns you want in the popup here
-                sublayer.setInteractivity(['cartodb_id', 'lat', 'lng', 'description', 'homeowner', 'title', 'url', 'id']);
-
-                sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
-                    var content = Mustache.render($('#sweeten_infowindow_template').html(), data);
-
-                    //control popup width and height here
-                    L.popup()
-                        .setLatLng(latlng)
-                        .setContent(content)
-                        .openOn(map);
-                });
-
-                // Turning infowindow off makes the cursor no longer
-                // become a pointer when the mouse is over a feature.
-                // Fix that here.
-                sublayer.on('featureOver', function (e, latlng, pos, data, layer) {
-                    $('#map').css('cursor', 'pointer');
-                });
-
-                sublayer.on('featureOut', function (e, latlng, pos, data, layer) {
-                    $('#map').css('cursor', '-moz-grab');
-                    $('#map').css('cursor', '-webkit-grab');
-                });
-           }
-
             $(document).ready(function () {
 
                 map = L.map('map', {
@@ -237,14 +201,45 @@
                         var permitSublayer = layer.getSubLayer(1);
                         initializePermitSublayer(permitSublayer);
                         sublayers.push(permitSublayer);
-
-                        var sweetenSublayer = layer.getSubLayer(0);
-                        initializeSweetenSublayer(sweetenSublayer);
-                        sublayers.push(sweetenSublayer);
                     })
                     .on('error', function() {
                         console.log("some error occurred");
                     });
+
+                // Initialize Sweeten projects layer
+                var query = 'SELECT * FROM ' + SQL_API_TABLE_SW;
+                var url = SQL_API_PREFIX + query + '&format=GeoJSON'
+                $.getJSON(url, function (data) {
+
+                    // Initialize MarkerCluster layer
+                    sweetenLayer = new L.MarkerClusterGroup({
+                        showCoverageOnHover: false,
+                        singleMarkerMode: true,
+                        spiderifyOnMaxZoom: false,
+                        zoomToBoundsOnClick: false
+                    });
+
+                    // Spiderfy when a cluster is clicked
+                    sweetenLayer.on('clusterclick', function (cluster) {
+                        cluster.layer.spiderfy();
+                    });
+
+                    // Initialize layer using GeoJSON data
+                    var geojsonLayer = L.geoJson(data, {
+
+                        onEachFeature: function (feature, layer) {
+                            var content = Mustache.render($('#sweeten_infowindow_template').html(), feature.properties);
+                            layer.bindPopup(content, {
+                                offset: [0, 0]              
+                            });
+                        }
+
+                    });
+
+                    // Add GeoJSON layer to MarkerCluster layer
+                    sweetenLayer.addLayer(geojsonLayer);
+                    map.addLayer(sweetenLayer);
+                });
 
                 // Initialize the date slider
                 $('#slider').dateRangeSlider({
@@ -284,8 +279,14 @@
               updatePermitLayerSQL();
             });
 
+            // Add or remove sweeten layer on checkbox change
             $(document).on('change', ':checkbox[data-sweeten]', function() {
-              updateSweetenLayerSQL($(this).is(':checked'))
+                if ($(this).is(':checked')) {
+                    map.addLayer(sweetenLayer);
+                }
+                else {
+                    map.removeLayer(sweetenLayer);
+                }
             });
 
         </script>
