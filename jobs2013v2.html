@@ -79,6 +79,10 @@
                 if (expensiveness_conditions.length !== 0) {
                     conditions += ' AND (' + expensiveness_conditions.join(' OR ') + ')';
                 }
+                else {
+                    // No checkboxes selected--don't show any permit data
+                    conditions += ' AND initial_cost < 0';
+                }
 
                 return conditions;
             }
