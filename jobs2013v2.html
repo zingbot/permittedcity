@@ -33,7 +33,7 @@
             // Constants
             var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
                 SQL_API_TABLE = 'swmasterfinalall_updated';
-                SQL_API_TABLE_SW= 'swprojects';
+                SQL_API_TABLE_SW= 'projects_2';
 
             // Initial values
             var initialDateMin = new Date(2012, 8, 2),
@@ -105,7 +105,7 @@
                         "'POINT(" + latlng[1] + " " + latlng[0] + ")', " +
                         "4326 " +
                       "), " +
-                      "0.0004" +
+                      "0.0001" +
                     ")";
 
                 // Add the standard WHERE conditions
@@ -142,7 +142,7 @@
                 });
             }
 
-            // Initialize the sublayer that holds permit points
+            // Initialize the sublayer that holds job points
             function initializePermitSublayer(sublayer) {
                 var subLayerOptions = {
                     sql: buildSQL()
@@ -362,7 +362,8 @@
       <header><h2>Sweeten</h2></header>
       <section>
         <h3>{{title}}</h3>
-        <p>{{description}}</p>
+        <p>{{desc}}</p>
+        <p>{{img}}</p>
         <p><a href="http://sweeten.com/projects/{{id}}" target="_parent">View project on Sweeten</a></p>
       </section>
     </script>
