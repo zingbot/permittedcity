@@ -649,6 +649,20 @@ background-color:aqua;
 .marker-cluster-small {
 	background-color: #ce9008;
 	}
+
+/* TOTALLY ridiculous styles for map elements based on zoom */
+.zoom13 .marker-cluster-small {
+	background-color: #0f0;
+	}
+.zoom14 .marker-cluster-small {
+	background-color: #ff0;
+	}
+.zoom15 .marker-cluster-small {
+	background-color: #0ff;
+    width: 25px !important;
+    height: 25px !important;
+	}
+
 .marker-cluster-small div {
 	background-color: #ce9008;
 	}

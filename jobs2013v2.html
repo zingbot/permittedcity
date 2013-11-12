@@ -178,6 +178,18 @@
                 });
             }
 
+            // Update the zoom{X} class on the map element. Nice for styling
+            // differently based on the map's zoom level
+            function updateZoomClass(map) {
+                // Remove any previously set zoom classes
+                for (var i = map.getMinZoom(); i <= map.getMaxZoom(); i++) {
+                    $('#map').removeClass('zoom' + i);
+                }
+
+                // Add current zoom class
+                $('#map').addClass('zoom' + map.getZoom());
+            }
+
             $(document).ready(function () {
 
                 map = L.map('map', {
@@ -188,6 +200,7 @@
                     minZoom: 13,
                     maxBounds:[[40.49,-74.26],[40.93,-73.655]]
                 });
+                updateZoomClass(map);
 
                 //Mapbox tile layer
                 L.tileLayer('http://a.tiles.mapbox.com/v3/zingbot.PermitBase/{z}/{x}/{y}.png', {
@@ -243,6 +256,11 @@
                     // Add GeoJSON layer to MarkerCluster layer
                     sweetenLayer.addLayer(geojsonLayer);
                     map.addLayer(sweetenLayer);
+                });
+
+                // Always update the zoom class when zoom happens
+                map.on('zoomend', function () {
+                    updateZoomClass(map);
                 });
 
                 // Initialize the date slider
