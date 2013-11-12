@@ -1,37 +1,41 @@
 /* For Side Panel */
 .panel {
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
   font-size: 10px;
-  left: 46px;
+  left: 56px;
   position: absolute;
   top: 10px;
   width: 210px;
   z-index: 1000;
 }
+.panel p { margin-top: 16px; }
 .panel h1, .panel h3, .panel label, .panel p {
-  padding: 0 10px;
+  padding: 0 16px;
 }
 .panel h1, .panel label {
   display: block;
   text-transform: uppercase;
 }
 .panel h1 {
-  border-bottom: 1px solid #ccc;
+  background: #000;
+  color: #fff;
   font-size: 18px;
   font-weight: normal;
-  line-height: 53px;
-  margin: 0;
+  line-height: 36px;
+  margin: 0 0 1px 0;
+}
+.panel article {
+  background: #fff;
+  border: 2px solid #000;
 }
 .panel h3 {
   font-weight: normal;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 .panel label {
   line-height: 25px;
   margin: 10px 0;
 }
+.panel label + h3 { margin-top: 6px; }
 .panel label span {
   display: inline-block;
   width: 100px;
@@ -95,6 +99,27 @@
 }
 
 /* For Info Windows */
+.leaflet-bar { box-shadow: none; }
+.leaflet-control-zoom a, .leaflet-control-zoom a:hover {
+  background: #000;
+  border-bottom: 0;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
+  width: 36px;
+}
+.leaflet-control-zoom a:first-child {
+  border-radius: 0;
+  margin-bottom: 1px;
+}
+.leaflet-control-zoom a:last-child { border-radius: 0; }
+.leaflet-bar a.leaflet-disabled, a:hover.leaflet-disabled {
+  background: #666;
+  color: #fff;
+}
+
+
+
 .leaflet-popup-content-wrapper {
   border-radius: 4px;
   box-shadow: 0 1px 7px rgba(0,0,0,0.65);
@@ -129,4 +154,94 @@
   border-top: 1px solid #ccc;
   margin-top: 10px;
   padding-top: 4px;
+}
+
+.social {
+  margin: 16px 0;
+  overflow: hidden;
+  padding-left: 16px;
+}
+.social li {
+  float: left;
+  margin-right: 15px;
+}
+.social li a {
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+.social li a.sweeten {
+  background-image: url("../img/sweeten-logo.png");
+  background-size: 116px 24px;
+  height: 24px;
+  width: 116px;
+}
+.social li a.twitter {
+  background-image: url("../img/twitter.png");
+  background-size: 16px 13px;
+  height: 13px;
+  width: 16px;
+}
+.social li a.facebook {
+  background-image: url("../img/facebook.png");
+  background-size: 12px 13px;
+  height: 13px;
+  width: 12px;
+}
+.social li a.twitter, .social li a.facebook { margin-top: 9px; }
+
+.ui-rangeSlider .ui-rangeSlider-innerBar {
+  background: #000;
+  border: 0;
+  height: 10px;
+  margin: 0;
+}
+.ui-rangeSlider .ui-rangeSlider-bar {
+  background: #0101de;
+  height: 10px;
+  margin: 0;
+}
+.ui-rangeSlider .ui-rangeSlider-handle {
+  background: #0000ff;
+  border: 0;
+  box-shadow: none;
+  height: 20px;
+  width: 20px;
+}
+.ui-rangeSlider .ui-rangeSlider-label {
+  background: #000;
+  border: 0;
+  border-radius: 0;
+  font-size: 8px;
+  font-weight: normal;
+  line-height: 16px;
+  letter-spacing: 1px;
+  margin: 0 0 -3.5em 0;
+  text-transform: uppercase;
+  padding: 0 0.5em;
+}
+
+
+.ui-rangeSlider .ui-rangeSlider-label {
+  position: relative;
+  background: #000;
+}
+.ui-rangeSlider .ui-rangeSlider-label:after {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.ui-rangeSlider .ui-rangeSlider-label:after {
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-color: #000;
+  border-width: 6px;
+  left: 50%;
+  margin-left: -6px;
 }
