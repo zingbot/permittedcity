@@ -647,35 +647,36 @@ background-color:aqua;
 }
 
 .marker-cluster-small {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-small div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster-medium {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-medium div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster-large {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-large div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster {
 	background-clip: padding-box;
-	border-radius: 10px;
+	opacity:.5;
+	border-radius: 1px;
 	width:1px;
 	height:1px;
 	}
 .marker-cluster div {
-	width: 0px;
-	height: 0px;
+	width: 1px;
+	height: 1px;
 	margin-left: 0%;
 	margin-top:0%;
 	text-align: center;
