@@ -33,7 +33,7 @@
             // Constants
             var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
                 SQL_API_TABLE = 'swmasterfinalall_updated';
-                SQL_API_TABLE_SW= 'projects_2';
+                SQL_API_TABLE_SW= 'finalswdata2';
 
             // Initial values
             var initialDateMin = new Date(2012, 8, 2),
@@ -362,8 +362,8 @@
       <header><h2>Sweeten</h2></header>
       <section>
         <h3>{{title}}</h3>
-        <p>{{desc}}</p>
-        <p>{{img}}</p>
+        <p>{{_desc}}</p>
+        <p><img src="{{img}}"></p>
         <p><a href="http://sweeten.com/projects/{{id}}" target="_parent">View project on Sweeten</a></p>
       </section>
     </script>
