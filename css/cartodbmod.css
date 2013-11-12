@@ -647,24 +647,24 @@ background-color:aqua;
 }
 
 .marker-cluster-small {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-small div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster-medium {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-medium div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster-large {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 .marker-cluster-large div {
-	background-color: #0000d4;
+	background-color: #ce9008;
 	}
 
 .marker-cluster {
@@ -681,7 +681,7 @@ background-color:aqua;
 	margin-top:0%;
 	text-align: center;
 	font: 2px "Montserrat", Arial, Helvetica, sans-serif;
-	color: #0000d4;
+	color: #ce9008;
 	}
 .marker-cluster span {
 	line-height: 5px;
