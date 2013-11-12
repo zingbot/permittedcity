@@ -669,17 +669,17 @@ background-color:aqua;
 
 .marker-cluster {
 	background-clip: padding-box;
-	border-radius: 1px;
-	width:5px;
-	height:5px;
+	border-radius: 10px;
+	width:1px;
+	height:1px;
 	}
 .marker-cluster div {
-	width: 5px;
-	height: 5px;
-	margin-left: 5%;
+	width: 0px;
+	height: 0px;
+	margin-left: 0%;
 	margin-top:0%;
 	text-align: center;
-	font: 15px "Montserrat", Arial, Helvetica, sans-serif;
+	font: 2px "Montserrat", Arial, Helvetica, sans-serif;
 	color: #fff;
 	}
 .marker-cluster span {
