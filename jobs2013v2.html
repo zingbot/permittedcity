@@ -45,6 +45,12 @@
                 sublayers = [],
                 map,
                 sweetenLayer;
+               
+               
+               
+          
+  
+  
 
             // Build the SQL for the layer that will be displayed
             function buildSQL() {
@@ -202,7 +208,7 @@
                    .addTo(map)
                    .on('done', function(layer) {
                         // Initialize sublayers
-                        var permitSublayer = layer.getSubLayer(1);
+                        var permitSublayer = layer.getSubLayer(0);
                         initializePermitSublayer(permitSublayer);
                         sublayers.push(permitSublayer);
                     })
