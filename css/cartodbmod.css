@@ -647,7 +647,9 @@ background-color:aqua;
 }
 
 .marker-cluster-small {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
+	background-image: url(http://cascadia.linepointpath.com/dev/permittedcity/img/Sweeten30px.svg);
+	background-size: cover;
 	}
 
 /* TOTALLY ridiculous styles for map elements based on zoom */
@@ -664,21 +666,23 @@ background-color:aqua;
 	}
 
 .marker-cluster-small div {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
+		
+
 	}
 
 .marker-cluster-medium {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
 	}
 .marker-cluster-medium div {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
 	}
 
 .marker-cluster-large {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
 	}
 .marker-cluster-large div {
-	background-color: #ce9008;
+/* 	background-color: #ce9008; */
 	}
 
 .marker-cluster {
