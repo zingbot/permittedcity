@@ -656,46 +656,49 @@ background-color:aqua;
 	}
 
 /* Map elements based on zoom */
-.zoom13 .marker-cluster-small {
+.zoom13 .marker-cluster-small .marker-cluster-medium .marker-cluster-large {
 /* 	background-color: #0f0; */
+
  width: 30px !important;
     height: 30px !important; 
 	}
-.zoom14 .marker-cluster-small {
+.zoom14 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #ff0; */
  width: 15px !important;
     height: 15px !important;
 	}
-.zoom15 .marker-cluster-small {
+.zoom15 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0ff; */
     width: 15px !important;
     height: 15px !important;
 	}
-.zoom16 .marker-cluster-small {
+.zoom16 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0f0; */
  width: 20px !important;
     height: 20px !important;
 	}
-	.zoom17 .marker-cluster-small {
+	.zoom17 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0f0; */
  width: 20px !important;
     height: 20px !important;
 	}
-		.zoom18 .marker-cluster-small {
+		.zoom18 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0f0; */
  width: 20px !important;
     height: 20px !important;
 	}
-	
 .marker-cluster-small div {
 /* 	background-color: #ce9008; */
 	}
 
-.marker-cluster-small {
-}
+
 .marker-cluster-medium {
 /* 	background-color: #ce9008; */
+background-color: rgba(255,0,0,0.0) !important;
+	background-image: url(http://cascadia.linepointpath.com/dev/permittedcity/img/Sweeten30px.svg);
+	background-size: cover;
 	}
+	
 .marker-cluster-medium div {
 /* 	background-color: #ce9008; */
 	}
