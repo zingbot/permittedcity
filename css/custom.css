@@ -119,42 +119,59 @@
 }
 
 
-
+.leaflet-container a.leaflet-popup-close-button {
+  background: #000;
+  border: solid #fff;
+  border-width: 0 0 1px 1px;
+  color: #fff;
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
+  text-align: center;
+  width: 36px;
+}
+.leaflet-container a { color: #a5a7ab; }
 .leaflet-popup-content-wrapper {
-  border-radius: 4px;
-  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff;
   font-size: 10px;
-  max-height: 300px;
-  max-width: 310px;
+  max-height: 309px;
+  max-width: 301px;
+  width: 301px;
+  padding: 0;
   overflow: scroll;
 }
 .leaflet-popup-tip {
-  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+  background: #000;
   margin-top: -13px;
 }
 .leaflet-popup-content-wrapper header {
-  border-bottom: 1px solid #ccc;
+  background: #000;
   display: block;
-  margin-bottom: 10px;
+  line-height: 36px;
+  border-bottom: 1px solid #fff;
+  padding-left: 16px;
   text-transform: uppercase;
 }
+.leaflet-container img { max-width: 100% !important; }
+.leaflet-popup-content-wrapper section {
+  background: #000;
+  padding: 8px 49px 12px 12px;
+}
+section.sweeten-project { padding: 8px 12px 12px; }
 .leaflet-popup-content-wrapper h2 {
   font-size: 16px;
-  line-height: normal;
-  padding-bottom: 4px;
+  line-height: 36px;
+  padding-bottom: 0;
+  vertical-align: bottom;
 }
-.leaflet-popup-content-wrapper h3 {
-  display: block;
-  margin-bottom: 10px;
-}
+.leaflet-popup-content-wrapper h3 { display: block; }
+.leaflet-popup-content-wrapper h3 + h3, .leaflet-popup-content-wrapper h3 + p { margin-top: 10px; }
 .leaflet-popup-content-wrapper p + p { margin-top: 10px; }
-.leaflet-popup-content { margin: 10px 0; }
-.leaflet-popup-content section, .leaflet-popup-content header { padding: 0 20px 0 10px; }
-.leaflet-popup-content section + header {
-  border-top: 1px solid #ccc;
-  margin-top: 10px;
-  padding-top: 4px;
-}
+.leaflet-popup-content { margin: 0; }
+.leaflet-popup-content section + header { border-top: 1px solid #fff; }
 
 .social {
   margin: 16px 0;
