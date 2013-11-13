@@ -659,8 +659,8 @@ background-color:aqua;
 .zoom13 .marker-cluster-small .marker-cluster-medium .marker-cluster-large {
 /* 	background-color: #0f0; */
 
- width: 30px !important;
-    height: 30px !important; 
+ width: 20px !important;
+    height: 20px !important; 
 	}
 .zoom14 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #ff0; */
@@ -669,8 +669,8 @@ background-color:aqua;
 	}
 .zoom15 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0ff; */
-    width: 15px !important;
-    height: 15px !important;
+    width: 18px !important;
+    height: 18px !important;
 	}
 .zoom16 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
 /* 	background-color: #0f0; */
