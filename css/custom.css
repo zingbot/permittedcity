@@ -160,6 +160,7 @@
   background: #000;
   padding: 8px 49px 12px 12px;
 }
+.leaflet-popup-content-wrapper section + section { border-top: 1px solid #fff; }
 section.sweeten-project { padding: 8px 12px 12px; }
 .leaflet-popup-content-wrapper h2 {
   font-size: 16px;
