@@ -674,14 +674,14 @@ background-color:aqua;
     height: 20px !important;
 	}
 	.zoom17 .marker-cluster-small {
-/* 	background-color: #0f0; */
- width: 20px !important;
+	/* 	background-color: #0f0; */
+	width: 20px !important;
     height: 20px !important;
 	}
-		.zoom18 .marker-cluster-small {
-/* 	background-color: #0f0; */
- width: 20px !important;
-    height: 20px !important;
+	.zoom18 .marker-cluster-small {
+	/* 	background-color: #0f0; */
+	width: 20px !important;
+	height: 20px !important;
 	}
 	
 .marker-cluster-small div {
