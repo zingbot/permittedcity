@@ -652,19 +652,38 @@ background-color:aqua;
 	background-size: cover;
 	}
 
-/* TOTALLY ridiculous styles for map elements based on zoom */
+/* Map elements based on zoom */
 .zoom13 .marker-cluster-small {
-	background-color: #0f0;
+/* 	background-color: #0f0; */
+ width: 20px !important;
+    height: 20px !important; 
 	}
 .zoom14 .marker-cluster-small {
-	background-color: #ff0;
+/* 	background-color: #ff0; */
+ width: 20px !important;
+    height: 20px !important;
 	}
 .zoom15 .marker-cluster-small {
-	background-color: #0ff;
-    width: 25px !important;
-    height: 25px !important;
+/* 	background-color: #0ff; */
+    width: 20px !important;
+    height: 20px !important;
 	}
-
+.zoom16 .marker-cluster-small {
+/* 	background-color: #0f0; */
+ width: 20px !important;
+    height: 20px !important;
+	}
+	.zoom17 .marker-cluster-small {
+/* 	background-color: #0f0; */
+ width: 20px !important;
+    height: 20px !important;
+	}
+		.zoom18 .marker-cluster-small {
+/* 	background-color: #0f0; */
+ width: 20px !important;
+    height: 20px !important;
+	}
+	
 .marker-cluster-small div {
 /* 	background-color: #ce9008; */
 		
@@ -689,12 +708,10 @@ background-color:aqua;
 	background-clip: padding-box;
 	opacity:.5;
 	border-radius: 1px;
-	width:1px;
-	height:1px;
 	}
 .marker-cluster div {
-	width: 1px;
-	height: 1px;
+	width: 0px;
+	height: 0px;
 	margin-left: 0%;
 	margin-top:0%;
 	text-align: center;
