@@ -33,7 +33,7 @@
             // Constants
             var SQL_API_PREFIX = 'http://zingbot.cartodb.com/api/v2/sql?q=',
                 SQL_API_TABLE = 'swmasterfinalall_updated';
-                SQL_API_TABLE_SW= 'gpsvizsweetengeo';
+                SQL_API_TABLE_SW= 'portfolios_projects_sweetengeo';
 
             // Initial values
             var initialDateMin = new Date(2012, 8, 2),
@@ -344,7 +344,7 @@
 
           <h3>Sweeten</h3>
           <label>
-            <figure><img src="img/sweeten.png"></figure>
+            <figure><img src="http://cascadia.linepointpath.com/dev/permittedcity/img/Sweeten30px.svg"></figure>
             <span>projects</span>
             <input type="checkbox" data-sweeten checked="checked">
           </label>
@@ -391,7 +391,7 @@
         <h3>{{title}}</h3>
         <p>{{_desc}}</p>
         <p><img src="{{img}}"></p>
-        <p><a href="http://sweeten.com/projects/{{id}}" target="_parent">View project on Sweeten</a></p>
+        <p><a href="http://sweeten.com/{{sweeten_type}}s/{{sweeten_id}}" target="_parent">View project on Sweeten</a></p>
       </section>
     </script>
   </body>
