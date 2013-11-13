@@ -44,9 +44,12 @@
   display: inline-block;
   text-align: center;
   margin: 0 10px 0 0;
-  width: 26px;
+  width: 24px;
 }
-.panel img { vertical-align: middle; }
+.panel img {
+  max-width: 100%;
+  vertical-align: middle;
+}
 .panel .bordered {
   border: solid #ccc;
   border-width: 1px 0;
@@ -217,12 +220,12 @@ section.sweeten-project { padding: 8px 12px 12px; }
   margin: 0;
 }
 .ui-rangeSlider .ui-rangeSlider-bar {
-  background: #0101de;
+  background: #0000d4;
   height: 10px;
   margin: 0;
 }
 .ui-rangeSlider .ui-rangeSlider-handle {
-  background: #0000ff;
+  background: #0000d4;
   border: 0;
   box-shadow: none;
   height: 20px;
