@@ -50,7 +50,9 @@
             function buildSQL() {
                 var baseQuery = "SELECT * FROM " + SQL_API_TABLE;
                 var conditions = buildSQLWhereConditions();
-                return [baseQuery, conditions].join(' WHERE ');
+                return [baseQuery, conditions].join(' WHERE ')+ ' ORDER BY initial_cost';
+                                
+
             }
 
             // Build just the WHERE conditions for the SQL query
