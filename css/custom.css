@@ -7,6 +7,11 @@
   width: 210px;
   z-index: 1000;
 }
+@media screen and (min-width: 320px) and (max-width: 568px) {
+
+  .panel { display: none; }
+
+}
 .panel p { margin-top: 16px; }
 .panel h1, .panel h3, .panel label, .panel p {
   padding: 0 16px;
@@ -103,6 +108,13 @@
 
 /* For Info Windows */
 .leaflet-bar { box-shadow: none; }
+@media screen and (min-width: 320px) and (max-width: 568px) {
+
+  .leaflet-top .leaflet-control {
+    margin-top: 54px;
+  }
+
+}
 .leaflet-control-zoom a, .leaflet-control-zoom a:hover {
   background: #000;
   border-bottom: 0;
@@ -137,6 +149,8 @@
 .leaflet-popup-content-wrapper {
   background: transparent;
   border-radius: 0;
+  border: solid #000;
+  border-width: 2px 0;
   box-shadow: none;
   color: #fff;
   font-size: 10px;
@@ -153,21 +167,24 @@
 .leaflet-popup-content-wrapper header {
   background: #000;
   display: block;
-  line-height: 36px;
+  line-height: 34px;
   border-bottom: 1px solid #fff;
   padding-left: 16px;
   text-transform: uppercase;
 }
 .leaflet-container img { max-width: 100% !important; }
 .leaflet-popup-content-wrapper section {
-  background: #000;
+  background: #fff;
+  border: solid #000;
+  border-width: 2px 2px 0;
+  color: #000;
   padding: 8px 49px 12px 12px;
 }
-.leaflet-popup-content-wrapper section + section { border-top: 1px solid #fff; }
+.leaflet-popup-content-wrapper section + section { border-top: 2px solid #000; }
 section.sweeten-project { padding: 8px 12px 12px; }
 .leaflet-popup-content-wrapper h2 {
   font-size: 16px;
-  line-height: 36px;
+  line-height: 34px;
   padding-bottom: 0;
   vertical-align: bottom;
 }
@@ -212,6 +229,12 @@ section.sweeten-project { padding: 8px 12px 12px; }
   width: 12px;
 }
 .social li a.twitter, .social li a.facebook { margin-top: 9px; }
+
+@media screen and (min-width: 320px) and (max-width: 568px) {
+
+  #slider { bottom: 70px; }
+
+}
 
 .ui-rangeSlider .ui-rangeSlider-innerBar {
   background: #000;
