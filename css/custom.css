@@ -9,7 +9,22 @@
 }
 @media screen and (min-width: 320px) and (max-width: 568px) {
 
-  .panel { display: none; }
+  .panel {
+    top: auto;
+    bottom: 40px;
+    left: 6%;
+    width: 88%;
+    z-index: 10000;
+  }
+  .panel p, .panel .social { display: none; }
+  .panel header h1 {
+    background: #000 url("../img/map-legend-logo.png") center center no-repeat;
+    background-size: 18px 21px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+  }
+  .panel article { display: none; }
 
 }
 .panel p { margin-top: 16px; }
@@ -110,8 +125,8 @@
 .leaflet-bar { box-shadow: none; }
 @media screen and (min-width: 320px) and (max-width: 568px) {
 
-  .leaflet-top .leaflet-control {
-    margin-top: 54px;
+  .leaflet-control-zoom {
+    display: none;
   }
 
 }
@@ -232,7 +247,7 @@ section.sweeten-project { padding: 8px 12px 12px; }
 
 @media screen and (min-width: 320px) and (max-width: 568px) {
 
-  #slider { bottom: 70px; }
+  #slider { bottom: 120px; }
 
 }
 

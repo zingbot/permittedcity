@@ -388,5 +388,15 @@
         <p><a href="http://sweeten.com/{{sweeten_type}}s/{{sweeten_id}}" target="_parent">View project on Sweeten</a></p>
       </section>
     </script>
+
+    <script>
+        $(document).ready(function() {
+          $('.panel header').on('click', function() {
+            if ($(window).width() < 568) {
+              $(this).next('article').slideToggle();
+            }
+          });
+        });
+    </script>
   </body>
 </html>
