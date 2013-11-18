@@ -44,6 +44,7 @@
                 dateMax = moment(initialDateMax).format('YYYY-MM-DD'),
                 sublayers = [],
                 map,
+                dobLayer,
                 sweetenLayer;
 
             // Build the SQL for the layer that will be displayed
@@ -220,6 +221,7 @@
                         var permitSublayer = layer.getSubLayer(0);
                         initializePermitSublayer(permitSublayer);
                         sublayers.push(permitSublayer);
+                        dobLayer = layer;
                     })
                     .on('error', function() {
                         console.log("some error occurred");
@@ -305,10 +307,12 @@
             // Add or remove sweeten layer on checkbox change
             $(document).on('change', ':checkbox[data-sweeten]', function() {
                 if ($(this).is(':checked')) {
+                    map.removeLayer(dobLayer);
                     map.addLayer(sweetenLayer);
                 }
                 else {
                     map.removeLayer(sweetenLayer);
+                    map.addLayer(dobLayer);
                 }
             });
 
