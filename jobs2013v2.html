@@ -330,6 +330,7 @@
                 if ($(this).is(':checked')) {
                     map.removeLayer(dobLayer);
                     map.addLayer(sweetenLayer);
+                    $(':checkbox:not([data-sweeten])').removeAttr('checked');
                 }
                 else {
                     map.removeLayer(sweetenLayer);
