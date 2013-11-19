@@ -156,9 +156,17 @@
 
                 sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
                     getDataForBIN(data['bin__'], function (data) {
-                        var content = Mustache.render($('#infowindow_template').html(), {
-                            rows: data,
-                        });
+                        if (full) {
+                          var content = Mustache.render($('#infowindow_template').html(), {
+                              rows: data,
+                          });
+                        }
+                        else {
+                          var content = Mustache.render($('#infowindow_template_limited').html(), {
+                              'firstResult': data[0],
+                              'remainingResults?': data.length > 1 ? { 'count': data.length - 1, 'plural?': !((data.length - 1) == 1) } : false
+                          });
+                        }
 
                         //control popup width and height here
                         L.popup()
@@ -405,6 +413,27 @@
       {{/rows}}
     </script>
 
+    <script type="infowindow/html" id="infowindow_template_limited">
+      <header><h2>{{firstResult.addressss}}</h2></header>
+      <section>
+        <h3>Owner: {{firstResult.owner_s_first_last_name}}</h3>
+        <h3>Applied: {{firstResult._display}}</h3>
+        <h3>Applicant: {{firstResult.applicant_s_first_last_name}}, {{firstResult.applicant_professional_title}}</h3>
+        <p>{{firstResult.job_description}}</p>
+        <p>
+          Estimated cost: ${{firstResult.initial_cost}}
+          <br>
+          Estimated fee: ${{firstResult.total_est_fee}}
+        </p>
+        <p><a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{firstResult.job__}}" target="_blank">View #{{firstResult.job__}} on DOB</a></p>
+      </section>
+      {{#remainingResults?}}
+        <section>
+          <p>There {{#plural?}}are{{/plural?}}{{^plural?}}is{{/plural?}} {{count}} more record{{#plural?}}s{{/plural?}} at this address!</p>
+        </section>
+      {{/remainingResults?}}
+    </script>
+
     <script type="infowindow/html" id="sweeten_infowindow_template">
       <header><h2>Sweeten</h2></header>
       <section class="sweeten-project">
@@ -421,6 +450,8 @@
               $(this).next('article').slideToggle();
             }
           });
+
+          window.full = window.location.search.indexOf('full=true') != -1;
         });
     </script>
   </body>
