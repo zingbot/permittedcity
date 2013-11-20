@@ -187,7 +187,7 @@
   padding-left: 16px;
   text-transform: uppercase;
 }
-.leaflet-container img { max-width: 100% !important; }
+/* .leaflet-container img { max-width: 100% !important; } */
 .leaflet-popup-content-wrapper section {
   background: #fff;
   border: solid #000;
