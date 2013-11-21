@@ -11,7 +11,7 @@
 
   .panel {
     top: auto;
-    bottom: 40px;
+    bottom: 20px;
     left: 6%;
     width: 88%;
     z-index: 10000;
@@ -159,6 +159,7 @@
   padding: 0;
   text-align: center;
   width: 36px;
+  z-index: 110;
 }
 .leaflet-container a { color: #a5a7ab; }
 .leaflet-popup-content-wrapper {
@@ -173,19 +174,30 @@
   max-width: 301px;
   width: 301px;
   padding: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .leaflet-popup-tip {
   background: #000;
   margin-top: -13px;
 }
 .leaflet-popup-content-wrapper header {
-  background: #000;
+  background: #fff;
   display: block;
   line-height: 34px;
-  border-bottom: 1px solid #fff;
-  padding-left: 16px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 1px;
+  position: absolute;
   text-transform: uppercase;
+  top: 2px;
+  width: 100%;
+  z-index: 100;
+}
+.leaflet-popup-content-wrapper header h2 {
+  background: #000;
+  margin: 0;
+  padding-left: 16px;
+  display: block;
 }
 /* .leaflet-container img { max-width: 100% !important; } */
 .leaflet-popup-content-wrapper section {
@@ -193,7 +205,7 @@
   border: solid #000;
   border-width: 2px 2px 0;
   color: #000;
-  padding: 8px 49px 12px 12px;
+  padding: 12px 49px 12px 12px;
 }
 .leaflet-popup-content-wrapper section + section { border-top: 2px solid #000; }
 section.sweeten-project { padding: 8px 12px 12px; }
@@ -203,13 +215,20 @@ section.sweeten-project { padding: 8px 12px 12px; }
   padding-bottom: 0;
   vertical-align: bottom;
 }
-.leaflet-popup-content-wrapper h3 { display: block; }
+.leaflet-popup-content-wrapper h3 {
+  display: block;
+  margin-top: 0;
+}
 .leaflet-popup-content-wrapper h3 + h3, .leaflet-popup-content-wrapper h3 + p { margin-top: 10px; }
 .leaflet-popup-content-wrapper p + p { margin-top: 10px; }
-.leaflet-popup-content { margin: 0; }
+.leaflet-popup-content {
+  margin: 0;
+  padding-top: 35px;
+}
 .leaflet-popup-content section + header { border-top: 1px solid #fff; }
 
 .social {
+  list-style: none;
   margin: 16px 0;
   overflow: hidden;
   padding-left: 16px;
@@ -247,7 +266,7 @@ section.sweeten-project { padding: 8px 12px 12px; }
 
 @media screen and (min-width: 320px) and (max-width: 568px) {
 
-  #slider { bottom: 120px; }
+  #slider { bottom: 100px; }
 
 }
 
@@ -303,4 +322,9 @@ section.sweeten-project { padding: 8px 12px 12px; }
   border-width: 6px;
   left: 50%;
   margin-left: -6px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 568px) {
+  .cartodb-logo { display: none !important; }
+  .leaflet-bottom.leaflet-right { display: none; }
 }

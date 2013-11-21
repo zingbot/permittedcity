@@ -158,12 +158,20 @@
                     getDataForBIN(data['bin__'], function (data) {
                         if (full) {
                           var content = Mustache.render($('#infowindow_template').html(), {
-                              rows: data,
+                              rows: data.map(function(d) {
+                                splitName = d['applicant_s_first_last_name'].split(' ');
+                                d['lastName'] = splitName[splitName.length - 1];
+                                return d;
+                              })
                           });
                         }
                         else {
                           var content = Mustache.render($('#infowindow_template_limited').html(), {
-                              'firstResult': data[0],
+                              'firstResult': data.map(function(d) {
+                                splitName = d['applicant_s_first_last_name'].split(' ');
+                                d['lastName'] = splitName[splitName.length - 1];
+                                return d;
+                              })[0],
                               'remainingResults?': data.length > 1 ? { 'count': data.length - 1, 'plural?': !((data.length - 1) == 1) } : false
                           });
                         }
@@ -400,7 +408,7 @@
         <section>
           <h3>Owner: {{owner_s_first_last_name}}</h3>
           <h3>Applied: {{_display}}</h3>
-          <h3>Applicant: {{applicant_s_first_last_name}}, {{applicant_professional_title}}</h3>
+          <h3>Applicant: {{lastName}}, {{applicant_professional_title}}</h3>
           <p>{{job_description}}</p>
           <p>
             Estimated cost: ${{initial_cost}}
@@ -417,7 +425,7 @@
       <section>
         <h3>Owner: {{firstResult.owner_s_first_last_name}}</h3>
         <h3>Applied: {{firstResult._display}}</h3>
-        <h3>Applicant: {{firstResult.applicant_s_first_last_name}}, {{firstResult.applicant_professional_title}}</h3>
+        <h3>Applicant: {{firstResult.lastName}}, {{firstResult.applicant_professional_title}}</h3>
         <p>{{firstResult.job_description}}</p>
         <p>
           Estimated cost: ${{firstResult.initial_cost}}
