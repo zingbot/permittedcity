@@ -409,7 +409,7 @@
           {{rows.0.addressss}}
           <small>{{rows.length}}</small>
         </h2>
-        <form action="http://sweeten.dev/map-notifications" method="post" data-remote="true">
+        <form action="http://sweeten.com/map-notifications" method="post" data-remote="true">
           <input type="hidden" name="map_notification[address]" value="{{rows.0.addressss}}">
           <input type="submit" value="Email Notifications">
         </form>
@@ -475,11 +475,11 @@
 
           <div>
             {{#userSignedIn?}}
-              <a href="http://sweeten.dev/insiders/new" target="_parent">Subscribe via PayPal</a>
+              <a href="http://sweeten.com/insiders/new" target="_parent">Subscribe via PayPal</a>
             {{/userSignedIn?}}
             {{^userSignedIn?}}
               <div class="sign-up">
-                <form accept-charset="UTF-8" action="http://sweeten.dev/signup" class="new_homeowner" id="new_homeowner" method="post" target="_top">
+                <form accept-charset="UTF-8" action="http://sweeten.com/signup" class="new_homeowner" id="new_homeowner" method="post" target="_top">
                   <input name="utf8" type="hidden" value="✓">
                   <input name="authenticity_token" type="hidden" value="NrD2FZogL4npf1jfIyIjLynhpedef5aUx613W7sOVig=">
                   <input id="insider" name="insider" type="hidden" value="1">
@@ -488,7 +488,7 @@
                   <input id="homeowner_username" maxlength="15" name="homeowner[username]" placeholder="Username" size="15" type="text">
                   <input id="homeowner_password" maxlength="75" name="homeowner[password]" placeholder="Password" size="75" type="password">
 
-                  <p>By clicking the button, you agree to our <a href="http://sweeten.dev/terms_of_use">Terms of Use</a></p>
+                  <p>By clicking the button, you agree to our <a href="http://sweeten.com/terms_of_use">Terms of Use</a></p>
 
                   <input class="button" name="commit" type="submit" value="Continue">
 
@@ -496,7 +496,7 @@
                 </form>
               </div>
               <div class="sign-in" style="display: none;">
-                <form accept-charset="UTF-8" action="http://sweeten.dev/login" class="new_user_session" id="new_user_session" method="post" target="_top">
+                <form accept-charset="UTF-8" action="http://sweeten.com/login" class="new_user_session" id="new_user_session" method="post" target="_top">
                   <input name="utf8" type="hidden" value="✓">
                   <input name="authenticity_token" type="hidden" value="hOLvg2xw0h7sKJvk+1OiHMEh6dkU4CIlCVl0tj9+/Tk=">
                   <input id="insider" name="insider" type="hidden" value="1">
