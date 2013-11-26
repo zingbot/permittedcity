@@ -156,23 +156,24 @@
 
                 sublayer.on('featureClick', function (e, latlng, pos, data, layer) {
                     getDataForBIN(data['bin__'], function (data) {
-                        if (full) {
+                        if (insider) {
                           var content = Mustache.render($('#infowindow_template').html(), {
-                              rows: data.map(function(d) {
-                                splitName = d['applicant_s_first_last_name'].split(' ');
-                                d['lastName'] = splitName[splitName.length - 1];
-                                return d;
-                              })
+                            rows: data.map(function(d) {
+                              splitName = d['applicant_s_first_last_name'].split(' ');
+                              d['lastName'] = splitName[splitName.length - 1];
+                              return d;
+                            })
                           });
                         }
                         else {
                           var content = Mustache.render($('#infowindow_template_limited').html(), {
-                              'firstResult': data.map(function(d) {
-                                splitName = d['applicant_s_first_last_name'].split(' ');
-                                d['lastName'] = splitName[splitName.length - 1];
-                                return d;
-                              })[0],
-                              'remainingResults?': data.length > 1 ? { 'count': data.length - 1, 'plural?': !((data.length - 1) == 1) } : false
+                            'firstResult': data.map(function(d) {
+                              splitName = d['applicant_s_first_last_name'].split(' ');
+                              d['lastName'] = splitName[splitName.length - 1];
+                              return d;
+                            })[0],
+                            'totalCount': data.length,
+                            'remainingResults?': data.length > 1 ? { 'remainingCount': data.length - 1, 'plural?': !((data.length - 1) == 1) } : false
                           });
                         }
 
@@ -403,7 +404,16 @@
     <div id="slider"></div>
 
     <script type="infowindow/html" id="infowindow_template">
-      <header><h2>{{rows.0.addressss}}</h2></header>
+      <header>
+        <h2>
+          {{rows.0.addressss}}
+          <small>{{rows.length}}</small>
+        </h2>
+        <form action="http://sweeten.dev/map-notifications" method="post" data-remote="true">
+          <input type="hidden" name="map_notification[address]" value="{{rows.0.addressss}}">
+          <input type="submit" value="Email Notifications">
+        </form>
+      </header>
       {{#rows}}
         <section>
           <h3>Owner: {{owner_s_first_last_name}}</h3>
@@ -421,7 +431,12 @@
     </script>
 
     <script type="infowindow/html" id="infowindow_template_limited">
-      <header><h2>{{firstResult.addressss}}</h2></header>
+      <header class="no-button">
+        <h2>
+          {{firstResult.addressss}}
+          <small>{{totalCount}}</small>
+        </h2>
+      </header>
       <section>
         <h3>Owner: {{firstResult.owner_s_first_last_name}}</h3>
         <h3>Applied: {{firstResult._display}}</h3>
@@ -435,8 +450,9 @@
         <p><a href="http://a810-bisweb.nyc.gov/bisweb/JobsQueryByNumberServlet?requestid=1&passjobnumber={{firstResult.job__}}" target="_blank">View #{{firstResult.job__}} on DOB</a></p>
       </section>
       {{#remainingResults?}}
-        <section>
-          <p>There {{#plural?}}are{{/plural?}}{{^plural?}}is{{/plural?}} {{count}} more record{{#plural?}}s{{/plural?}} at this address!</p>
+        <section class="insider">
+          <p>See {{remainingCount}} more record{{#plural?}}s{{/plural?}} and receive email alerts!</p>
+          <p><a href="#" class="button">Subscribe to become a Sweeten *<strong>Insider</strong>*</a></p>
         </section>
       {{/remainingResults?}}
     </script>
@@ -450,6 +466,73 @@
       </section>
     </script>
 
+    <script type="text/html" id="insider_modal_template">
+      <div class="modal">
+        <a href="#" class="close">close <span>&times;</span></a>
+        <h1>Subscribe to become a Sweeten *INSIDER*</h1>
+        <div class="left">
+          <p>Upgrade to our *<strong>INSIDER</strong>* account to see full records and receive alerts on new filings. You will be charged a recurring payment of $10/month for access.</p>
+
+          <div>
+            {{#userSignedIn?}}
+              <a href="http://sweeten.dev/insiders/new" target="_parent">Subscribe via PayPal</a>
+            {{/userSignedIn?}}
+            {{^userSignedIn?}}
+              <div class="sign-up">
+                <form accept-charset="UTF-8" action="http://sweeten.dev/signup" class="new_homeowner" id="new_homeowner" method="post" target="_top">
+                  <input name="utf8" type="hidden" value="✓">
+                  <input name="authenticity_token" type="hidden" value="NrD2FZogL4npf1jfIyIjLynhpedef5aUx613W7sOVig=">
+                  <input id="insider" name="insider" type="hidden" value="1">
+
+                  <input id="homeowner_email" maxlength="75" name="homeowner[email]" placeholder="Email" size="75" type="email">
+                  <input id="homeowner_username" maxlength="15" name="homeowner[username]" placeholder="Username" size="15" type="text">
+                  <input id="homeowner_password" maxlength="75" name="homeowner[password]" placeholder="Password" size="75" type="password">
+
+                  <p>By clicking the button, you agree to our <a href="http://sweeten.dev/terms_of_use">Terms of Use</a></p>
+
+                  <input class="button" name="commit" type="submit" value="Continue">
+
+                  <p>Already have an account? <a href="#" class="trigger">Sign in</a> instead.</p>
+                </form>
+              </div>
+              <div class="sign-in" style="display: none;">
+                <form accept-charset="UTF-8" action="http://sweeten.dev/login" class="new_user_session" id="new_user_session" method="post" target="_top">
+                  <input name="utf8" type="hidden" value="✓">
+                  <input name="authenticity_token" type="hidden" value="hOLvg2xw0h7sKJvk+1OiHMEh6dkU4CIlCVl0tj9+/Tk=">
+                  <input id="insider" name="insider" type="hidden" value="1">
+
+                  <input id="user_session_username" maxlength="75" name="user_session[username]" placeholder="Email or username" size="75" type="text">
+                  <input id="user_session_password" maxlength="75" name="user_session[password]" placeholder="Password" size="75" type="password">
+
+                  <input class="button" name="commit" type="submit" value="Sign in">
+
+                  <p>Need to <a href="#" class="trigger">sign up</a>?</p>
+                </form>
+              </div>
+            {{/userSignedIn?}}
+          </div>
+
+        </div>
+        <div class="right">
+          <p>An *<strong>INSIDER</strong>* account unlocks many great features of our comprehensive NYC building map:</p>
+          <ul>
+            <li>
+              <h4>See all DOB records at any address</h4>
+              <figure><img src="img/about-1.jpg"></figure>
+            </li>
+            <li>
+              <h4>Advanced search options</h4>
+              <figure style="display: none;"><img src="img/about-2.jpg"></figure>
+            </li>
+            <li>
+              <h4>Receive email alerts of new filings</h4>
+              <figure style="display: none;"><img src="img/about-3.jpg"></figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </script>
+
     <script>
         $(document).ready(function() {
           $('.panel header').on('click', function() {
@@ -458,7 +541,31 @@
             }
           });
 
-          window.full = window.location.search.indexOf('full=true') != -1;
+          $(document).on('click', '.insider .button', function() {
+            var content = Mustache.render($('#insider_modal_template').html(), {
+              'userSignedIn?': window.userSignedIn
+            });
+
+            $('body').append(content);
+          });
+
+          $(document).on('click', '.modal .trigger', function() {
+            $(this).closest('div').hide().siblings('div').show();
+          });
+
+          $(document).on('click', '.modal .close', function() {
+            $(this).closest('.modal').remove();
+          });
+
+          $(document).on('click', '.modal h4', function() {
+            if ($(this).next().is(':hidden')) {
+              $(this).closest('ul').find('figure').slideUp();
+              $(this).next().slideDown();
+            }
+          });
+
+          window.insider = window.location.search.indexOf('insider=true') != -1;
+          window.userSignedIn = window.location.search.indexOf('user_signed_in=true') != -1;
         });
     </script>
   </body>
