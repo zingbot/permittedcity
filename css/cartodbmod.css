@@ -650,52 +650,27 @@ background-color:aqua;
 }
 
 .marker-cluster-small {
-    background-color: rgba(255,0,0,0.0) !important;
-	background-image: url(http://cascadia.linepointpath.com/dev/permittedcity/img/Sweeten30px.svg);
+  background-color: rgba(255,0,0,0.0) !important;
+	background-image: url("../img/sweeten.svg");
 	background-size: cover;
+  width: 36px !important;
+  height: 36px !important;
 	}
 
-/* Map elements based on zoom */
-.zoom13 .marker-cluster-small .marker-cluster-medium .marker-cluster-large {
-/* 	background-color: #0f0; */
+.zoom14 .marker-cluster-small {
+	width: 30px !important;
+	height: 30px !important;
+}
 
- width: 20px !important;
-    height: 20px !important; 
-	}
-.zoom14 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
-/* 	background-color: #ff0; */
- width: 15px !important;
-    height: 15px !important;
-	}
-.zoom15 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
-/* 	background-color: #0ff; */
-    width: 18px !important;
-    height: 18px !important;
-	}
-.zoom16 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
-/* 	background-color: #0f0; */
- width: 20px !important;
-    height: 20px !important;
-	}
-	.zoom17 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
-/* 	background-color: #0f0; */
- width: 20px !important;
-    height: 20px !important;
-	}
-		.zoom18 .marker-cluster-small .marker-cluster-medium .marker-cluster-large{
-/* 	background-color: #0f0; */
- width: 20px !important;
-    height: 20px !important;
-	}
-.marker-cluster-small div {
-/* 	background-color: #ce9008; */
-	}
-
+.zoom13 .marker-cluster-small {
+	width: 24px !important;
+	height: 24px !important;
+}
 
 .marker-cluster-medium {
 /* 	background-color: #ce9008; */
 background-color: rgba(255,0,0,0.0) !important;
-	background-image: url(http://cascadia.linepointpath.com/dev/permittedcity/img/Sweeten30px.svg);
+	background-image: url("../img/sweeten.svg");
 	background-size: cover;
 	}
 	
@@ -712,7 +687,6 @@ background-color: rgba(255,0,0,0.0) !important;
 
 .marker-cluster {
 	background-clip: padding-box;
-	opacity:.5;
 	border-radius: 1px;
 	}
 .marker-cluster div {
